@@ -1,69 +1,129 @@
 // Game 1 
 // Choose the right object
-$(document).ready(function () {
-  var object1 = $("#object1");
-  var object2 = $("#object2");
-  var object3 = $("#object3");
-  var object4 = $("#object4");
+function Game() {
+  this.object1 = $("#object1");
+  this.object2 = $("#object2");
+  this.object3 = $("#object3");
+  this.object4 = $("#object4");
+  this.colorArray = ["orange", "lightblue", "lightgreen", "grey"];
+  this.randomColor = "";
+  this.questionType = "";
+  this.slothicles = 3;
+  this.score = 0;
 
-  function getRandomColor() {
-    var colorArray = ["orange", "lightblue", "lightgreen", "grey"];
-    let counter = colorArray.length;
+  // Fisher-Yates Shuffle
+  this.shuffleArray = function(array) {
+    let counter = array.length;
     while (counter > 0) {
       let index = Math.floor(Math.random() * counter);
       counter--;
-      let temp = colorArray[counter];
-      colorArray[counter] = colorArray[index];
-      colorArray[index] = temp;
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
     }
-    return colorArray;
+    return array;
   }
 
-  // change content
-  var randomTextColor = getRandomColor();
-  object1.text(randomTextColor[0]);
-  object2.text(randomTextColor[1]);
-  object3.text(randomTextColor[2]);
-  object4.text(randomTextColor[3]);
+  this.getRandomItem = function(array){
+    return array[Math.floor(Math.random()*array.length)];
+  }
 
-  // change the color of the background
-  var randomBackgroundColor = getRandomColor();
-  object1.css("background-color",randomBackgroundColor[0]);
-  object2.css("background-color",randomBackgroundColor[1]);
-  object3.css("background-color",randomBackgroundColor[2]);
-  object4.css("background-color",randomBackgroundColor[3]);
+  this.createQuestion = function() {
+    this.randomColor = this.getRandomItem(this.colorArray);
+    this.questionType = this.getRandomItem(["text","bg","border"])
+    switch (this.questionType) {
+      case "text":
+        var question = "Click the circle called " + this.randomColor;
+        break;
+      case "bg":
+        var question = "Click the " + this.randomColor + " circle";
+        break;
+      case "border":
+        var question = "Click the circle with the " + this.randomColor + " border";
+        break;
+      default:
+        break;
+    }
+    $("#random-question").text(question);
+  }
 
-  // change the color of the border
-  var randomBorderColor = getRandomColor();
-  object1.css("border-color",randomBorderColor[0]);
-  object2.css("border-color",randomBorderColor[1]);
-  object3.css("border-color",randomBorderColor[2]);
-  object4.css("border-color",randomBorderColor[3]);
+  this.create = function() {
+    // fill text
+    var textColorArray = this.shuffleArray(this.colorArray);
+    this.object1.text(textColorArray[0]);
+    this.object2.text(textColorArray[1]);
+    this.object3.text(textColorArray[2]);
+    this.object4.text(textColorArray[3]);
 
+    // fill bg Color
+    var backgroundColorArray = this.shuffleArray(this.colorArray);
+    this.object1.css("background-color",backgroundColorArray[0]);
+    this.object2.css("background-color",backgroundColorArray[1]);
+    this.object3.css("background-color",backgroundColorArray[2]);
+    this.object4.css("background-color",backgroundColorArray[3]);
 
-  // Display random Question
-  var randomQuestionColor = randomTextColor[Math.floor(Math.random()*randomTextColor.length)];
-  var questionText = "Click the circle called " + randomQuestionColor;
-  var questionCircle = "Click the " + randomQuestionColor + " circle";
-  var questionBorder = "Click the circle with the " + randomQuestionColor + " border"
-  var randomizer = [[questionText,"text"],[questionCircle,"circle"],[questionBorder,"border"]];
-  var randomQuestion = randomizer[Math.floor(Math.random()*randomizer.length)];
-  $("#random-question").text(randomQuestion[0]);
+    // fill border Color
+    var borderColorArray = this.shuffleArray(this.colorArray);
+    this.object1.css("border-color",borderColorArray[0]);
+    this.object2.css("border-color",borderColorArray[1]);
+    this.object3.css("border-color",borderColorArray[2]);
+    this.object4.css("border-color",borderColorArray[3]);
+
+    $("#slothicles").text(this.slothicles)
+    $("#score").text(this.score)
+    this.createQuestion();
+  }
+
+  this.checkAnswer = function(text, bg, border) {
+    switch (this.questionType) {
+      case "text":
+        return (text === this.randomColor)
+        break;
+      case "bg":
+        return (bg === this.randomColor)
+        break;
+      case "border":
+        return (border === this.randomColor)
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+$(document).ready(function () {
+  let myGame = new Game();
+
+  function timer(){
+    var sec = 30;
+    var timer = setInterval(function(){
+        document.getElementById('time').innerHTML='00:'+sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+            alert(myGame.score)
+        }
+        console.log(sec)
+        console.log(timer)
+    }, 1000);
+  }
+  timer();
+
+  myGame.create();
 
   $(".object").click(function(event){
     var object = event.currentTarget;
-    var text = object.textContent;
-    var bgColor = object.style.backgroundColor;
-    var borderColor = object.style.borderColor;
-    if ((randomQuestion[1] === "text") && (text === randomQuestionColor)){
-      alert("fuck yeah")
-    }else if ((randomQuestion[1] === "circle") && (bgColor === randomQuestionColor)){
-      alert("fuck yeah")
-    }else if ((randomQuestion[1] === "border") && (borderColor === randomQuestionColor)){
-      alert("fuck yeah")
+    if (!myGame.checkAnswer(object.textContent, object.style.backgroundColor ,object.style.borderColor)){
+      myGame.slothicles -= 1;
     }else{
+      myGame.score++;
     }
-    })
-
-
+    $("#slothicles").text(myGame.slothicles)
+    $("#score").text(myGame.score)
+    if(myGame.slothicles < 0){
+      alert("you are not slothisticated enough for this game!");
+      myGame.slothicles = 3;
+    } 
+    myGame.create();
+  })
 })
