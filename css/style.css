@@ -6,14 +6,20 @@ body{
   display: flex;
 }
 
+#start-game{
+  padding: 20px;
+}
+
 .object{
   padding: 20px;
-  color: white; 
+  color: black;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
   margin: 20px; 
   width: 100px;
   height: 100px;
   line-height: 100px;
   text-align: center;
   border-radius: 500px;
-  border: 10px solid black;
 }
