@@ -3,7 +3,7 @@
 function MasterGame() {
   this.slothicles = 3;
   this.score = 0;
-  this.level = 1;
+  this.level = 3;
 
   this.init = function() {
     $("#slothicles").text(this.slothicles)
@@ -12,16 +12,13 @@ function MasterGame() {
     this.updateStats();
   }
 
-  this.start = function() {
-
-  }
-
-  this.timer = function() {
-
-  }
-
   this.loadRandomGame = function() {
+    var randomGame = getRandomItem(this.games);
+    debugger
+  }
 
+  this.getRandomItem = function(array){
+    return array[Math.floor(Math.random()*array.length)];
   }
 
   this.updateStats = function() {
@@ -41,7 +38,7 @@ function MasterGame() {
       if (sec < 10) this.level = 3;
       if (sec < 0) {
           clearInterval(timer);
-          alert(myGame.score)
+          alert(this.score)
       }
     }.bind(this), 1000);
   }
@@ -90,6 +87,4 @@ $(document).ready(function () {
     brain.updateStats();
     myGame2.create();
   })
-
-
 })
