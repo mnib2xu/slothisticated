@@ -1,27 +1,42 @@
 // Game Enginge
 // The Brain of the Game!
-function MasterGame() {
-  this.slothicles = 3;
-  this.score = 0;
-  this.level = 3;
+class MasterGame {
 
-  this.init = function() {
+  constructor() {
+    this.slothicles = 3;
+    this.score = 0;
+    this.level = 1;
+  }
+
+  init() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
     this.timer(30);
     this.updateStats();
   }
 
-  this.loadRandomGame = function() {
-    var randomGame = getRandomItem(this.games);
-    debugger
+  loadRandomGame() {
+
   }
 
-  this.getRandomItem = function(array){
+  getRandomItem(array){
     return array[Math.floor(Math.random()*array.length)];
   }
 
-  this.updateStats = function() {
+  // Fisher-Yates Shuffle
+  shuffleArray(array) {
+    let counter = array.length;
+    while (counter > 0) {
+      let index = Math.floor(Math.random() * counter);
+      counter--;
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+    }
+    return array;
+  }
+
+  updateStats() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
     if(this.slothicles < 0){
@@ -30,13 +45,15 @@ function MasterGame() {
     }
   }
 
-  this.timer = function(sec) {
+  timer() {
+    var sec = 0;
     var timer = setInterval(function(){
       document.getElementById('time').innerHTML='00:'+sec;
-      sec--;
-      if (sec < 20) this.level = 2;
-      if (sec < 10) this.level = 3;
-      if (sec < 0) {
+      sec++;
+      if (sec > 2) {
+        this.level = 2;
+      }
+      if (sec > 10) {
           clearInterval(timer);
           alert(this.score)
       }
@@ -49,7 +66,6 @@ $(document).ready(function () {
   $("#start-game").click(function(){
     brain.init();
   })
-
 
   var myGame = new Game1();
   $("#start-game-1").click(function(event){

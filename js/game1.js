@@ -1,36 +1,22 @@
 // Game 1 
 // Choose the right object
-function Game1() {
-  this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
-  this.colorArray = ["orange", "lightblue", "lightgreen", "grey"];
-  this.randomColor = "";
-  this.questionType = "";
-  this.brain = new MasterGame();
+class Game1 extends MasterGame{
 
-  // Fisher-Yates Shuffle
-  this.shuffleArray = function(array) {
-    let counter = array.length;
-    while (counter > 0) {
-      let index = Math.floor(Math.random() * counter);
-      counter--;
-      let temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
-    }
-    return array;
+  constructor(){
+    super();
+    this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
+    this.colorArray = ["orange", "lightblue", "lightgreen", "grey"];
+    this.randomColor = "";
+    this.questionType = "";
   }
 
-  this.getRandomItem = function(array){
-    return array[Math.floor(Math.random()*array.length)];
-  }
-
-  this.createQuestion = function() {
+  createQuestion() {
     this.randomColor = this.getRandomItem(this.colorArray);
     var types = ["bg"];
-    if (this.brain.level > 1){
+    if (this.level > 1){
       types.push("border")
     }
-    if (this.brain.level > 2){
+    if (this.level > 2){
       types.push("text")
     }
     this.questionType = this.getRandomItem(types)
@@ -50,21 +36,21 @@ function Game1() {
     $("#random-question").text(question);
   }
 
-  this.create = function() {
+  create() {
     $("#game1").css("display","flex");
     // fill background color
     var backgroundColorArray = this.shuffleArray(this.colorArray);
     this.objects.forEach(function(element,index) {
       element.css("background-color",backgroundColorArray[index]);
     });
-    if (this.brain.level > 1){
+    if (this.level > 1){
       // fill border color
       var borderColorArray = this.shuffleArray(this.colorArray);
       this.objects.forEach(function(element,index) {
         element.css("border", `${borderColorArray[index]} 10px solid`);
       });
     }
-    if (this.brain.level > 2){
+    if (this.level > 2){
       // fill text
       var textColorArray = this.shuffleArray(this.colorArray);
       this.objects.forEach(function(element,index) {
@@ -73,11 +59,11 @@ function Game1() {
     }
     this.createQuestion();
   }
-    this.remove = function(){
-      $("#game1").css("display","none");
-      $("#random-question").text("");
-    }
-  this.checkAnswer = function(text, bg, border) {
+  remove(){
+    $("#game1").css("display","none");
+    $("#random-question").text("");
+  }
+  checkAnswer(text, bg, border) {
     switch (this.questionType) {
       case "text":
         return (text === this.randomColor)
