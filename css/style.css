@@ -5,8 +5,7 @@ body{
 .objects{
   display: flex;
 }
-
-#start-game{
+button{
   padding: 20px;
 }
 
@@ -22,4 +21,14 @@ body{
   line-height: 100px;
   text-align: center;
   border-radius: 500px;
+}
+#game-arena{
+  background-color: blanchedalmond;
+  padding: 50px;
+  width: 100%;
+}
+
+.answer{
+  padding: 20px;
+  border: 1px solid black;
 }

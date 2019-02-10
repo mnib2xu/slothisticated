@@ -5,27 +5,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Slothisticated</title>
-    <link href="./css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="./css/style.css" rel="stylesheet" type="text/css" media="screen" />
 
 </head>
 
-<body> 
-    <button id="start-game"> Start the Game </button>
+<body>
+    <button id="start-game"> Start the Game! </button>
+    <button id="start-game-1"> Start Game 1 </button>
+    <button id="stop-game-1"> remove Game 1 </button>
+    <button id="start-game-2"> Start Game 2 </button>
+    <button id="stop-game-2"> Remove Game 2 </button>
     <h1>Your Task: <span id="random-question"></span></h1>
-    <div class="objects">
-        <div class="object" id="object1">
-            <span class="text" id="text1"></span>
+
+    <div id="game-arena">
+        <div id="game1" class="objects" style="display:none;">
+            <div class="object" id="object1"><span class="text" id="text1"></span></div>
+            <div class="object" id="object2"><span class="text" id="text2"></span></div>
+            <div class="object" id="object3"><span class="text" id="text3"></span></div>
+            <div class="object" id="object4"><span class="text" id="text4"></span></div>
         </div>
-        <div class="object" id="object2">
-            <span class="text" id="text2"></span>
+        <div id="game2" class="asnwers" style="display:none;">
+            <span class="answer" id="answer1"></span>
+            <span class="answer" id="answer2"></span>
+            <span class="answer" id="answer3"></span>
         </div>
-        <div class="object" id="object3">
-            <span class="text" id="text3"></span>
-        </div>
-        <div class="object" id="object4">
-            <span class="text" id="text4"></span>
-        </div>
+
     </div>
+
     <h1>Slothicles: <span id="slothicles"></span></h1>
     <h1>Time: <span id="time"></span></h1>
     <h1>Score: <span id="score"></span></h1>
