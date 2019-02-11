@@ -22,22 +22,11 @@
         <div class="question-area">
             <h1><span id="random-question"></span></h1>
         </div>
-
-        <!-- LIVES BAR -->
-        <div class="live-bar">
-            <p>Slothicles:</p>
-            <ul>
-                <li class="live live-one"><img src="img/sloth.svg"></li>
-                <li class="live live-two"><img src="img/sloth.svg"></li>
-                <li class="live live-three"><img src="img/sloth.svg"></li>
-                <li class="live live-four"><img src="img/sloth.svg"></li>
-            </ul>
-        </div>
     </header>
 
     <section>
         <!-- GAME ONE -->
-        <div id="game1" class="grid2x2">
+        <div id="game1" class="grid2x2" style="display:none;">
             <div id="object1" class="object box1">
                 <div>
                     <span class="innerText"></span>
@@ -74,9 +63,34 @@
     <section>
         <!-- GAME TWO -->
         <div id="game2" style="display:none;">
+            <div class="reactionBox" id="reaction-wait">
+                <span>Click when the Sloth appears</span>
+            </div>
+            <div class="reactionBox hidden" id="reaction-go">
+                <img id="sloth-reaction" src="img/react.jpg" alt="sloth-face">
+                <div class="hidden" id="reaction-time-box">
+                    <p>Reaction time level 1: <span id="time-limit">500</span></p>
+                    <span id="reaction-time"></span> milliseconds
+                </div>
+            </div>
+            <div class="reactionBox hidden" id="reaction-result">
+                
+            </div>
+
+            </div>
         </div>
     </section>
 
+    <!-- LIVES BAR -->
+    <div class="live-bar">
+        <p>Slothicles:</p>
+        <ul>
+            <li class="live live-one"><img src="img/sloth.svg"></li>
+            <li class="live live-two"><img src="img/sloth.svg"></li>
+            <li class="live live-three"><img src="img/sloth.svg"></li>
+            <li class="live live-four"><img src="img/sloth.svg"></li>
+        </ul>
+    </div>
     <!-- Footer (Score) -->
     <footer>
         <div class="score-bar">
@@ -85,7 +99,6 @@
         </div>
     </footer>
     <div class="test-bar">
-        <p>Slothicles: <span id="slothicles"></span></p>
         <p>Time: <span id="time"></span></p>
         <p>Score: <span id="score"></span></p>
     </div>
