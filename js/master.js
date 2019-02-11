@@ -5,7 +5,6 @@ class MasterGame {
   constructor() {
     this.slothicles = 3;
     this.score = 0;
-    this.level = 4;
   }
 
   init() {
@@ -15,8 +14,11 @@ class MasterGame {
     this.updateStats();
   }
 
-  loadRandomGame() {
-
+  loadRandomGame(gameArray) {
+    gameArray[0].remove();
+    gameArray[1].remove();
+    var randomGame = this.getRandomItem(gameArray);
+    randomGame.create();
   }
 
   getRandomItem(array) {
@@ -25,15 +27,16 @@ class MasterGame {
 
   // Fisher-Yates Shuffle
   shuffleArray(array) {
-    let counter = array.length;
+    var newArray = array.map((elem) => elem);
+    let counter = newArray.length;
     while (counter > 0) {
       let index = Math.floor(Math.random() * counter);
       counter--;
-      let temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
+      let temp = newArray[counter];
+      newArray[counter] = newArray[index];
+      newArray[index] = temp;
     }
-    return array;
+    return newArray;
   }
 
   updateStats() {
@@ -56,7 +59,7 @@ class MasterGame {
       if (sec > 20) {
         this.__proto__.level = 3;
       }
-      if (sec > 20) {
+      if (sec > 30) {
         this.__proto__.level = 4;
       }
       if (sec > 1000) {
@@ -74,8 +77,13 @@ $(document).ready(function () {
     brain.init();
   })
 
-  var myGame = new Game1();
-  $("#start-game-1").click(function (event) {
+
+  let myGame = new Game1();
+  let myGame2 = new Game2();
+  var allGames = [myGame, myGame2];
+
+  $("#start-game-1").click(function(event){
+
     myGame.create();
   })
   $("#stop-game-1").click(function (event) {
@@ -83,18 +91,20 @@ $(document).ready(function () {
   })
   $(".object").click(function (event) {
     var object = event.currentTarget;
-    if (myGame.checkAnswer(object.textContent, object.style.backgroundColor, object.style.borderColor)) {
+
+    if (myGame.checkAnswer(object.children[0].textContent, object.style.backgroundColor ,object.style.borderColor, object.children[1].style.backgroundColor)){
+
       brain.score++;
     } else {
       brain.slothicles -= 1;
     }
     brain.updateStats();
-    myGame.create();
+    brain.loadRandomGame(allGames);
   })
 
 
-  let myGame2 = new Game2();
-  $("#start-game-2").click(function () {
+  $("#start-game-2").click(function(){
+
     myGame2.create();
   })
   $("#stop-game-2").click(function () {
@@ -105,9 +115,8 @@ $(document).ready(function () {
       brain.score++;
     } else {
       brain.slothicles -= 1;
-
     }
     brain.updateStats();
-    myGame2.create();
+    brain.loadRandomGame(allGames);
   })
 })

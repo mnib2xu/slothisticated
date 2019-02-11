@@ -7,6 +7,7 @@ class Game1 extends MasterGame{
     this.lightGreen = 
     this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
     this.colorArray = ["#D49CA8", "#5634AA", "#679AA8", "#D9E1BE"];
+
     this.randomColor = "";
     this.questionType = "";
   }
@@ -43,6 +44,22 @@ class Game1 extends MasterGame{
     $("#random-question").text(question);
   }
 
+  doNotRepeat(array) {
+    var same = true;
+    while (same) {
+      var newColorArray = this.shuffleArray(this.colorArray);
+      same = false;
+      array.forEach(function(arrayElement){
+        arrayElement.forEach(function(element,index){
+          if (element === newColorArray[index]){
+            same = true;
+          }
+        })
+      })
+    }
+    return newColorArray;
+  }
+
   create() {
     $("#game1").css("display","flex");
     // fill background color
@@ -52,14 +69,14 @@ class Game1 extends MasterGame{
     });
     if (this.level > 1){
       // fill border color
-      var borderColorArray = this.shuffleArray(this.colorArray);
+      var borderColorArray = this.doNotRepeat([backgroundColorArray]);
       this.objects.forEach(function(element,index) {
         element.css("border", `${borderColorArray[index]} 10px solid`);
       });
     }
     if (this.level > 2){
       // fill text
-      var textColorArray = this.shuffleArray(this.colorArray);
+      var textColorArray = this.doNotRepeat([borderColorArray, backgroundColorArray]);
       this.objects.forEach(function(element,index) {
         element.children("span").text(textColorArray[index]);
         element.children("div").css("display","none");
@@ -67,7 +84,7 @@ class Game1 extends MasterGame{
     }
     if (this.level > 3){
       // fill text
-      var innerCircleColorArray = this.shuffleArray(this.colorArray);
+      var innerCircleColorArray = this.doNotRepeat([backgroundColorArray, borderColorArray, textColorArray]);
       this.objects.forEach(function(element,index) {
         element.children("span").text("");
         element.children("div").css("display","block");
@@ -80,7 +97,7 @@ class Game1 extends MasterGame{
     $("#game1").css("display","none");
     $("#random-question").text("");
   }
-  checkAnswer(text, bg, border) {
+  checkAnswer(text, bg, border, innerCircle) {
     switch (this.questionType) {
       case "text":
         return (text === this.randomColor)
@@ -88,6 +105,8 @@ class Game1 extends MasterGame{
         return (bg === this.randomColor)
       case "border":
         return (border === this.randomColor)
+      case "innerCircle":
+        return (innerCircle === this.randomColor)
       default:
         break;
     }
