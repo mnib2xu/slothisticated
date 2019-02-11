@@ -2,10 +2,10 @@
 // Choose the right object
 class Game1 extends MasterGame{
 
-  constructor(){
-    super();
+  constructor(score, slothicles){
+    super(score, slothicles);
     this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
-    this.colorArray = ["orange", "lightblue", "lightgreen", "grey"];
+    this.colorArray = ["orange", "purple", "green", "grey"];
     this.randomColor = "";
     this.questionType = "";
   }
@@ -13,12 +13,15 @@ class Game1 extends MasterGame{
   createQuestion() {
     this.randomColor = this.getRandomItem(this.colorArray);
     var types = ["bg"];
-    debugger
     if (this.level > 1){
       types.push("border")
     }
     if (this.level > 2){
       types.push("text")
+    }
+    if (this.level > 3){
+      types.pop();
+      types.push("innerCircle")
     }
     this.questionType = this.getRandomItem(types)
     switch (this.questionType) {
@@ -31,6 +34,8 @@ class Game1 extends MasterGame{
       case "border":
         var question = "Click the circle with the " + this.randomColor + " border";
         break;
+      case "innerCircle":
+        var question = `Click the inner ${this.randomColor} circle`
       default:
         break;
     }
@@ -55,7 +60,17 @@ class Game1 extends MasterGame{
       // fill text
       var textColorArray = this.shuffleArray(this.colorArray);
       this.objects.forEach(function(element,index) {
-        element.text(textColorArray[index]);
+        element.children("span").text(textColorArray[index]);
+        element.children("div").css("display","none");
+      });
+    }
+    if (this.level > 3){
+      // fill text
+      var innerCircleColorArray = this.shuffleArray(this.colorArray);
+      this.objects.forEach(function(element,index) {
+        element.children("span").text("");
+        element.children("div").css("display","block");
+        element.children("div").css("background-color",innerCircleColorArray[index]);
       });
     }
     this.createQuestion();
