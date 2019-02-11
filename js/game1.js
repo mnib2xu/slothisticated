@@ -1,4 +1,5 @@
-// Game 1 
+// Game 1
+// Stroopwafel
 // Choose the right object
 class Game1 extends MasterGame{
 
