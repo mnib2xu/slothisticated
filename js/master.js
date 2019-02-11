@@ -11,7 +11,7 @@ class MasterGame {
   init() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
-    this.timer(30);
+    this.timer();
     this.updateStats();
   }
 
@@ -50,10 +50,10 @@ class MasterGame {
     var timer = setInterval(function(){
       document.getElementById('time').innerHTML='00:'+sec;
       sec++;
-      if (sec > 2) {
+      if (sec > 10) {
         this.level = 2;
       }
-      if (sec > 10) {
+      if (sec > 1000) {
           clearInterval(timer);
           alert(this.score)
       }
@@ -61,6 +61,8 @@ class MasterGame {
   }
 }
 
+
+// document ready
 $(document).ready(function () {
   var brain = new MasterGame();
   $("#start-game").click(function(){

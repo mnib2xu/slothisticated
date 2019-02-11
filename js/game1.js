@@ -13,6 +13,7 @@ class Game1 extends MasterGame{
   createQuestion() {
     this.randomColor = this.getRandomItem(this.colorArray);
     var types = ["bg"];
+    debugger
     if (this.level > 1){
       types.push("border")
     }
