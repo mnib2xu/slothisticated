@@ -77,7 +77,6 @@ $(document).ready(function () {
     brain.init();
   })
   let myGame = new Game1();
-  let myGame2 = new Game2();
   var allGames = [myGame, myGame2];
 
   $("#start-game-1").click(function (event) {
@@ -98,7 +97,7 @@ $(document).ready(function () {
     brain.loadRandomGame(allGames);
   })
 
-
+/*
   $("#start-game-2").click(function () {
     myGame2.create();
   })
@@ -114,4 +113,5 @@ $(document).ready(function () {
     brain.updateStats();
     brain.loadRandomGame(allGames);
   })
+  */
 })
