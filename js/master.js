@@ -21,8 +21,8 @@ class MasterGame {
     randomGame.create();
   }
 
-  getRandomItem(array){
-    return array[Math.floor(Math.random()*array.length)];
+  getRandomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
   }
 
   // Fisher-Yates Shuffle
@@ -42,7 +42,7 @@ class MasterGame {
   updateStats() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
-    if(this.slothicles < 0){
+    if (this.slothicles < 0) {
       alert("you are not slothisticated enough for this game!");
       this.slothicles = 3;
     }
@@ -50,8 +50,8 @@ class MasterGame {
 
   timer() {
     var sec = 0;
-    var timer = setInterval(function(){
-      document.getElementById('time').innerHTML='00:'+sec;
+    var timer = setInterval(function () {
+      document.getElementById('time').innerHTML = '00:' + sec;
       sec++;
       if (sec > 10) {
         this.__proto__.level = 2;
@@ -63,8 +63,8 @@ class MasterGame {
         this.__proto__.level = 4;
       }
       if (sec > 1000) {
-          clearInterval(timer);
-          alert(this.score)
+        clearInterval(timer);
+        alert(this.score)
       }
     }.bind(this), 1000);
   }
@@ -73,45 +73,50 @@ class MasterGame {
 // document ready
 $(document).ready(function () {
   var brain = new MasterGame();
-  $("#start-game").click(function(){
+  $("#start-game").click(function () {
     brain.init();
   })
+
 
   let myGame = new Game1();
   let myGame2 = new Game2();
   var allGames = [myGame, myGame2];
 
   $("#start-game-1").click(function(event){
+
     myGame.create();
   })
-  $("#stop-game-1").click(function(event){
+  $("#stop-game-1").click(function (event) {
     myGame.remove();
   })
-  $(".object").click(function(event){
+  $(".object").click(function (event) {
     var object = event.currentTarget;
+
     if (myGame.checkAnswer(object.children[0].textContent, object.style.backgroundColor ,object.style.borderColor, object.children[1].style.backgroundColor)){
+
       brain.score++;
-    }else{
+    } else {
       brain.slothicles -= 1;
     }
     brain.updateStats();
     brain.loadRandomGame(allGames);
   })
 
+
   $("#start-game-2").click(function(){
+
     myGame2.create();
   })
-  $("#stop-game-2").click(function(){
+  $("#stop-game-2").click(function () {
     myGame2.remove();
   })
-  $(".answer").click(function(){
-    if (myGame2.checkAnswer(event.currentTarget.textContent)){
+  $(".answer").click(function () {
+    if (myGame2.checkAnswer(event.currentTarget.textContent)) {
       brain.score++;
-    }else{
+    } else {
       brain.slothicles -= 1;
     }
     brain.updateStats();
     brain.loadRandomGame(allGames);
   })
 })
-

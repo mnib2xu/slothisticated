@@ -4,8 +4,10 @@ class Game1 extends MasterGame{
 
   constructor(score, slothicles){
     super(score, slothicles);
+    this.lightGreen = 
     this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
-    this.colorArray = ["orange", "lightblue", "lightgreen", "grey"];
+    this.colorArray = ["#D49CA8", "#5634AA", "#679AA8", "#D9E1BE"];
+
     this.randomColor = "";
     this.questionType = "";
   }
