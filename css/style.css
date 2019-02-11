@@ -1,42 +1,114 @@
-body{
-  height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #FBF6D2;
+  font-family: "Tahoma";
 }
-.objects{
+
+/*  QUESTION AREA */
+.question-area {
+  height: 160px;
+  background-color: #5634AA;
+  color: #D9E1BE;
   display: flex;
+  align-items: center;
 }
-button{
+
+.question-area h1 {
+  margin: 0 20px;
+}
+
+
+/* SLOSTHICLES LIVE BAR */
+.live-bar {
+  display: flex;
+  font-family: Tahoma;
+  color: #5634AA;
+  background-color: #F83CA7;
+  border-radius: 15px;
+  width: 70%;
+  font-size: 20px;
+  margin: 20px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-bar ul, p {
+  display: flex;
+  padding-left: 8px;
+  margin: 0;
+}
+
+.live-bar li {
+  list-style: none;
+  height: 15px;
+  background-color: #679AA8;
+  width: 15px;
+  margin: 10px;
+}
+
+
+/* 2x2 GAME GRID */
+.grid2x2 {
+  min-height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.grid2x2>div {
+  display: flex;
+  flex-basis: calc(35% - 40px);
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grid2x2>div>div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.object {
+  margin: 20px;
   padding: 20px;
-}
-.innercircle{
-  padding: 30px;
-  border-radius: 30px;
-}
-.object{
-  padding: 20px;
-  color: black;
   font-size: 20px;
   text-transform: capitalize;
   font-weight: bold;
-  margin: 20px; 
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
   text-align: center;
-  border-radius: 500px;
+  height: 100px;
+  border-radius: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#game-arena{
-  background-color: blanchedalmond;
+
+
+.innercircle {
   padding: 50px;
-  width: 100%;
+  border-radius: 30px;
 }
-.innterText{
+
+.innerText {
   display: none;
 }
-.answer{
-  padding: 20px;
-  border: 1px solid black;
+
+
+/* SCORE BAR */
+.score-bar {
+  position: fixed;
+  bottom: 50px;
+  left: calc(50% - 50px); 
+  display: flex;
+  justify-content: center;
+  background-color: #F83CA7;
+  border-radius: 15px;
+  align-items: center;
+}
+
+.score-bar p, span {
+  margin: 5px;
 }
