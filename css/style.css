@@ -13,10 +13,12 @@ body {
   color: #D9E1BE;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .question-area h1 {
   margin: 0 20px;
+  max-width: 600px;
 }
 
 
@@ -27,7 +29,8 @@ body {
   color: #5634AA;
   background-color: #F83CA7;
   border-radius: 15px;
-  width: 70%;
+  width: 90%;
+  max-width: 300px;
   font-size: 20px;
   margin: 20px auto;
   align-items: center;
@@ -42,9 +45,10 @@ body {
 
 .live-bar li {
   list-style: none;
-  height: 15px;
-  background-color: #679AA8;
-  width: 15px;
+  height: 5vh;
+  width: 5vh;
+  /* background-color: #679AA8; */
+
   margin: 10px;
 }
 
@@ -80,6 +84,7 @@ body {
   font-weight: bold;
   text-align: center;
   height: 100px;
+  max-width: 100px;
   border-radius: 200px;
   display: flex;
   justify-content: center;
