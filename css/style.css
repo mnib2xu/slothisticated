@@ -8,7 +8,10 @@ body{
 button{
   padding: 20px;
 }
-
+.innercircle{
+  padding: 30px;
+  border-radius: 30px;
+}
 .object{
   padding: 20px;
   color: black;
@@ -21,13 +24,18 @@ button{
   line-height: 100px;
   text-align: center;
   border-radius: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #game-arena{
   background-color: blanchedalmond;
   padding: 50px;
   width: 100%;
 }
-
+.innterText{
+  display: none;
+}
 .answer{
   padding: 20px;
   border: 1px solid black;

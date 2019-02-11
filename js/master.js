@@ -5,7 +5,7 @@ class MasterGame {
   constructor() {
     this.slothicles = 3;
     this.score = 0;
-    this.level = 1;
+    this.level = 4;
   }
 
   init() {
@@ -51,7 +51,13 @@ class MasterGame {
       document.getElementById('time').innerHTML='00:'+sec;
       sec++;
       if (sec > 10) {
-        this.level = 2;
+        this.__proto__.level = 2;
+      }
+      if (sec > 20) {
+        this.__proto__.level = 3;
+      }
+      if (sec > 20) {
+        this.__proto__.level = 4;
       }
       if (sec > 1000) {
           clearInterval(timer);
@@ -60,7 +66,6 @@ class MasterGame {
     }.bind(this), 1000);
   }
 }
-
 
 // document ready
 $(document).ready(function () {
@@ -106,3 +111,4 @@ $(document).ready(function () {
     myGame2.create();
   })
 })
+
