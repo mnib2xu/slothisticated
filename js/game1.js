@@ -26,19 +26,24 @@ class Game1 extends MasterGame{
       types.pop();
       types.push("innerCircle")
     }
+    var colorText = "";
+    if (this.randomColor === "#D49CA8") colorText = "pink";
+    if (this.randomColor === "#5634AA") colorText = "purple";
+    if (this.randomColor === "#679AA8") colorText = "blue";
+    if (this.randomColor === "#D9E1BE") colorText = "white";
     this.questionType = this.getRandomItem(types)
     switch (this.questionType) {
       case "text":
-        var question = "Click the circle called " + this.randomColor;
+        var question = "Click the circle called " + colorText;
         break;
       case "bg":
-        var question = "Click the " + this.randomColor + " circle";
+        var question = "Click the " + colorText + " circle";
         break;
       case "border":
-        var question = "Click the circle with the " + this.randomColor + " border";
+        var question = "Click the circle with the " + colorText + " border";
         break;
       case "innerCircle":
-        var question = `Click the inner ${this.randomColor} circle`
+        var question = `Click the inner ${colorText} circle`
       default:
         break;
     }

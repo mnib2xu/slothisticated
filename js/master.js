@@ -81,7 +81,6 @@ $(document).ready(function () {
   let myGame = new Game1();
   let myGame2 = new Game2();
   var allGames = [myGame, myGame2];
-
   $("#start-game-1").click(function(event){
 
     myGame.create();
@@ -91,7 +90,7 @@ $(document).ready(function () {
   })
   $(".object").click(function (event) {
     var object = event.currentTarget;
-    if (myGame.checkAnswer(object.children[0].children[0].textContent, object.children[0].style.backgroundColor ,object.children[0].style.borderColor, object.children[0^].children[1].style.backgroundColor)){
+    if (myGame.checkAnswer(object.children[0].children[0].textContent, object.children[0].style.backgroundColor ,object.children[0].style.borderColor, object.children[0].children[1].style.backgroundColor)){
 
       brain.score++;
     } else {
