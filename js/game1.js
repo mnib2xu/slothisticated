@@ -1,5 +1,4 @@
 // Game 1
-// Stroopwafel
 // Choose the right object
 class Game1 extends MasterGame{
 
@@ -7,66 +6,9 @@ class Game1 extends MasterGame{
     super(score, slothicles);
     this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
     this.colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(217, 225, 190)"];
-
     this.randomColor = "";
     this.questionType = "";
   }
-
-  createQuestion() {
-    this.randomColor = this.getRandomItem(this.colorArray);
-    var types = ["bg"];
-    if (this.level > 1){
-      types.push("border");
-    }
-    if (this.level > 2){
-      types.push("text");
-    }
-    if (this.level > 3){
-      types.pop();
-      types.push("innerCircle");
-    }
-    var colorText = "";
-    if (this.randomColor === "rgb(212, 156, 168)") colorText = "pink";
-    if (this.randomColor === "rgb(86, 52, 170)") colorText = "purple";
-    if (this.randomColor === "rgb(103, 154, 168)") colorText = "blue";
-    if (this.randomColor === "rgb(217, 225, 190)") colorText = "white";
-    this.questionType = this.getRandomItem(types)
-    switch (this.questionType) {
-      case "text":
-        var question = `Click the circle called ${this.rgbToText(this.randomColor)}`
-        break;
-      case "bg":
-        var question = `Click the ${this.rgbToText(this.randomColor)} circle`;
-        break;
-      case "border":
-        var question = `Click the circle with the ${this.rgbToText(this.randomColor)} border`;
-        break;
-      case "innerCircle":
-        var question = `Click the inner ${this.rgbToText(this.randomColor)} circle`
-      default:
-        break;
-    }
-    $("#random-question").text(question);
-  }
-
-
-
-  doNotRepeat(array) {
-    var same = true;
-    while (same) {
-      var newColorArray = this.shuffleArray(this.colorArray);
-      same = false;
-      array.forEach(function(arrayElement){
-        arrayElement.forEach(function(element,index){
-          if (element === newColorArray[index]){
-            same = true;
-          }
-        })
-      })
-    }
-    return newColorArray;
-  }
-
   create() {
     $("#game1").css("display","flex");
     // fill background color
@@ -85,26 +27,85 @@ class Game1 extends MasterGame{
       // fill text
       var textColorArray = this.doNotRepeat([borderColorArray, backgroundColorArray]);
       this.objects.forEach(function(element,index) {
-        element.children().children("span").text(textColorArray[index]);
+        element.children().children("span").text(this.rgbToText(textColorArray[index]));
         element.children().children("div").css("display","none");
-      });
+      },this);
     }
     if (this.level > 3){
       // fill text
       var innerCircleColorArray = this.doNotRepeat([backgroundColorArray, borderColorArray, textColorArray]);
       this.objects.forEach(function(element,index) {
-        element.children("span").text("");
-        element.children("div").css("display","block");
-        element.children("div").css("background-color",innerCircleColorArray[index]);
+        element.children().children("span").css("display","none");
+        element.children().children("div").css("display","block");
+        element.children().children("div").css("background-color",innerCircleColorArray[index]);
       });
     }
     this.createQuestion();
+  }
+  createQuestion() {
+    this.randomColor = this.getRandomItem(this.colorArray);
+    var types = ["bg"];
+    if (this.level > 1){
+      types.push("border");
+    }
+    if (this.level > 2){
+      types.push("text");
+    }
+    if (this.level > 3){
+      types.pop();
+      types.push("innerCircle");
+    }
+    this.questionType = this.getRandomItem(types)
+    switch (this.questionType) {
+      case "text":
+        var question = `Click the circle called ${this.rgbToText(this.randomColor)}`
+        break;
+      case "bg":
+        var question = `Click the ${this.rgbToText(this.randomColor)} circle`;
+        break;
+      case "border":
+        var question = `Click the circle with the ${this.rgbToText(this.randomColor)} border`;
+        break;
+      case "innerCircle":
+        var question = `Click the inner ${this.rgbToText(this.randomColor)} circle`
+      default:
+        break;
+    }
+    $("#random-question").text(question);
   }
   remove(){
     $("#game1").css("display","none");
     $("#random-question").text("");
   }
-
+  checkAnswer(text, bg, border, innerCircle) {
+    switch (this.questionType) {
+      case "text":
+        return (text === this.rgbToText(this.randomColor))
+      case "bg":
+        return (bg === this.randomColor)
+      case "border":
+        return (border === this.randomColor)
+      case "innerCircle":
+        return (innerCircle === this.randomColor)
+      default:
+        break;
+    }
+  }
+  doNotRepeat(array) {
+    var same = true;
+    while (same) {
+      var newColorArray = this.shuffleArray(this.colorArray);
+      same = false;
+      array.forEach(function(arrayElement){
+        arrayElement.forEach(function(element,index){
+          if (element === newColorArray[index]){
+            same = true;
+          }
+        })
+      })
+    }
+    return newColorArray;
+  }
   rgbToText(rgb) {
     switch (rgb) {
       case "rgb(212, 156, 168)":
@@ -117,21 +118,6 @@ class Game1 extends MasterGame{
         return "white";
       default:
         return "color";
-    }
-  }
-
-  checkAnswer(text, bg, border, innerCircle) {
-    switch (this.questionType) {
-      case "text":
-        return (text === this.randomColor)
-      case "bg":
-        return (bg === this.randomColor)
-      case "border":
-        return (border === this.randomColor)
-      case "innerCircle":
-        return (innerCircle === this.randomColor)
-      default:
-        break;
     }
   }
 }

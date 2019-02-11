@@ -3,9 +3,8 @@
 class MasterGame {
 
   constructor() {
-    this.slothicles = 3;
+    this.slothicles = 4;
     this.score = 0;
-    this.level = 3;
   }
 
   init() {
@@ -18,7 +17,7 @@ class MasterGame {
   loadRandomGame(gameArray) {
     gameArray[0].remove();
     gameArray[1].remove();
-    var randomGame = this.getRandomItem(gameArray);
+    var randomGame = gameArray[0];
     randomGame.create();
   }
 
@@ -43,7 +42,7 @@ class MasterGame {
   updateStats() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
-    if (this.slothicles < 0) {
+    if (this.slothicles === 0) {
       alert("you are not slothisticated enough for this game!");
       this.slothicles = 3;
     }
@@ -90,7 +89,6 @@ $(document).ready(function () {
   $(".object").click(function (event) {
     var object = event.currentTarget;
     if (myGame.checkAnswer(object.children[0].children[0].textContent, object.style.backgroundColor, object.style.borderColor, object.children[0].children[1].style.backgroundColor)) {
-
       brain.score++;
     } else {
       brain.slothicles -= 1;
