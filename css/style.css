@@ -67,7 +67,7 @@ body {
 
 /* 2x2 GAME GRID */
 .grid2x2 {
-  min-height: 50%;
+  min-height: 45%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -89,18 +89,19 @@ body {
 }
 
 .object {
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   font-size: 20px;
   text-transform: capitalize;
   font-weight: bold;
   text-align: center;
-  height: 100px;
-  max-width: 100px;
-  border-radius: 200px;
+  max-width: 75px;
+  max-height: 75px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: block;
 }
 
 
@@ -110,16 +111,21 @@ body {
 }
 
 .innerText {
-  /*display: none;*/
+  /* display: none; */
 }
 
 
 /* SCORE BAR */
-
+footer {
+  margin-top: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 .score-bar {
-  bottom: 50px;
-  left: calc(50% - 50px); 
   display: flex;
+  padding: 0 20px;
+  font-size: 20px;
   height: 50px;
   color: #5634AA;
   justify-content: center;
@@ -131,7 +137,7 @@ body {
 
 .score-bar p, span {
   margin: 5px;
-  padding: 20px;
+  padding: 20px 0 ;
 }
 
 /* TEST BAR */
