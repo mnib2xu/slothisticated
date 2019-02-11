@@ -91,8 +91,7 @@ $(document).ready(function () {
   })
   $(".object").click(function (event) {
     var object = event.currentTarget;
-
-    if (myGame.checkAnswer(object.children[0].textContent, object.style.backgroundColor ,object.style.borderColor, object.children[1].style.backgroundColor)){
+    if (myGame.checkAnswer(object.children[0].children[0].textContent, object.children[0].style.backgroundColor ,object.children[0].style.borderColor, object.children[0^].children[1].style.backgroundColor)){
 
       brain.score++;
     } else {
