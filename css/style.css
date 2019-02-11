@@ -34,23 +34,35 @@ body {
   font-size: 20px;
   margin: 20px auto;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+  /* padding-left: 25px; */
+  min-height: 50px;
 }
 
 .live-bar ul, p {
   display: flex;
   padding-left: 8px;
   margin: 0;
+
 }
 
 .live-bar li {
   list-style: none;
-  height: 5vh;
-  width: 5vh;
-  /* background-color: #679AA8; */
-
-  margin: 10px;
+  height: 30px;
+  width: 30px;
+  max-height: 30px;
+  margin: 7px;
 }
+
+@media (min-width: 1440px) {
+  
+  .live-bar {
+    max-width: 360px;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
 
 
 /* 2x2 GAME GRID */
@@ -103,17 +115,28 @@ body {
 
 
 /* SCORE BAR */
+
 .score-bar {
-  position: fixed;
   bottom: 50px;
   left: calc(50% - 50px); 
   display: flex;
+  height: 50px;
+  color: #5634AA;
   justify-content: center;
   background-color: #F83CA7;
   border-radius: 15px;
   align-items: center;
+  max-width: 150px;
 }
 
 .score-bar p, span {
   margin: 5px;
+  padding: 20px;
+}
+
+/* TEST BAR */
+
+.test-bar {
+  position: absolute;
+  bottom:20px;
 }

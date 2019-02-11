@@ -94,6 +94,7 @@ $(document).ready(function () {
       brain.score++;
     } else {
       brain.slothicles -= 1;
+      $(".live-bar ul li:last-child").remove()
     }
     brain.updateStats();
     brain.loadRandomGame(allGames);

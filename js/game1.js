@@ -5,7 +5,6 @@ class Game1 extends MasterGame{
 
   constructor(score, slothicles){
     super(score, slothicles);
-    this.lightGreen = 
     this.objects = [$("#object1"),$("#object2"),$("#object3"),$("#object4")]
     this.colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(217, 225, 190)"];
 
