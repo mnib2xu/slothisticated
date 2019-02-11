@@ -5,7 +5,6 @@ class MasterGame {
   constructor() {
     this.slothicles = 3;
     this.score = 0;
-    this.level = 4;
   }
 
   init() {
@@ -15,8 +14,11 @@ class MasterGame {
     this.updateStats();
   }
 
-  loadRandomGame() {
-
+  loadRandomGame(gameArray) {
+    gameArray[0].remove();
+    gameArray[1].remove();
+    var randomGame = this.getRandomItem(gameArray);
+    randomGame.create();
   }
 
   getRandomItem(array){
@@ -57,7 +59,7 @@ class MasterGame {
       if (sec > 20) {
         this.__proto__.level = 3;
       }
-      if (sec > 20) {
+      if (sec > 30) {
         this.__proto__.level = 4;
       }
       if (sec > 1000) {
@@ -74,7 +76,11 @@ $(document).ready(function () {
   $("#start-game").click(function(){
     brain.init();
   })
-  var myGame = new Game1();
+
+  let myGame = new Game1();
+  let myGame2 = new Game2();
+  var allGames = [myGame, myGame2];
+
   $("#start-game-1").click(function(event){
     myGame.create();
   })
@@ -89,11 +95,9 @@ $(document).ready(function () {
       brain.slothicles -= 1;
     }
     brain.updateStats();
-    myGame.create();
+    brain.loadRandomGame(allGames);
   })
 
-
-  let myGame2 = new Game2();
   $("#start-game-2").click(function(){
     myGame2.create();
   })
@@ -107,7 +111,7 @@ $(document).ready(function () {
       brain.slothicles -= 1;
     }
     brain.updateStats();
-    myGame2.create();
+    brain.loadRandomGame(allGames);
   })
 })
 
