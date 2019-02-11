@@ -25,15 +25,16 @@ class MasterGame {
 
   // Fisher-Yates Shuffle
   shuffleArray(array) {
-    let counter = array.length;
+    var newArray = array.map((elem) => elem);
+    let counter = newArray.length;
     while (counter > 0) {
       let index = Math.floor(Math.random() * counter);
       counter--;
-      let temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
+      let temp = newArray[counter];
+      newArray[counter] = newArray[index];
+      newArray[index] = temp;
     }
-    return array;
+    return newArray;
   }
 
   updateStats() {
@@ -73,7 +74,6 @@ $(document).ready(function () {
   $("#start-game").click(function(){
     brain.init();
   })
-
   var myGame = new Game1();
   $("#start-game-1").click(function(event){
     myGame.create();
@@ -83,7 +83,7 @@ $(document).ready(function () {
   })
   $(".object").click(function(event){
     var object = event.currentTarget;
-    if (myGame.checkAnswer(object.textContent, object.style.backgroundColor ,object.style.borderColor)){
+    if (myGame.checkAnswer(object.children[0].textContent, object.style.backgroundColor ,object.style.borderColor, object.children[1].style.backgroundColor)){
       brain.score++;
     }else{
       brain.slothicles -= 1;
@@ -105,7 +105,6 @@ $(document).ready(function () {
       brain.score++;
     }else{
       brain.slothicles -= 1;
-
     }
     brain.updateStats();
     myGame2.create();
