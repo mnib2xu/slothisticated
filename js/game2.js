@@ -75,6 +75,7 @@ class Game2 extends MasterGame{
     }else if(this.elapsedTime < this.timeLimit){
       $("#reaction-result").addClass("passed");
       $("#sloth-result").attr("src","img/react.jpg");
+      this.gamePassed = true;
     }else if(this.elapsedTime > this.timeLimit){
       $("#reaction-result").addClass("failed");
       $("#sloth-result").attr("src","img/come-on-man.jpg");
