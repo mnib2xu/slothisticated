@@ -5,7 +5,7 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.score = 0;
-    this.level = 1;
+    this.level = 4;
   }
 
   init() {
