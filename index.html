@@ -66,16 +66,17 @@
         <!-- REACTION CLICK GAME | GAME TWO -->
         <div id="game2" style="display:none;">
             <div class="reactionBox" id="reaction-wait">
-                <span>Click when the Sloth appears</span>
+                <span id="react-text">Click when the Sloth appears</span>
             </div>
             <div class="reactionBox hidden" id="reaction-go">
                 <img id="sloth-reaction" src="img/react.jpg" alt="sloth-face">
-                <div class="hidden" id="reaction-time-box">
-                    <p>Reaction time level 1: <span id="time-limit">500</span></p>
-                    <span id="reaction-time"></span> milliseconds
-                </div>
             </div>
             <div class="reactionBox hidden" id="reaction-result">
+                <img id="sloth-result" alt="sloth-face">
+                <div id="reaction-time-box">
+                    <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
+                    <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div>
+                </div>
             </div>
         </div>
     </section>
@@ -99,11 +100,11 @@
 
             <div id="dark" class="box4 gamebutton">
                 <div>
+
                 </div>
             </div>
         </div>
     </section>
-
     <!-- LIVES BAR -->
     <div class="live-bar">
         <p>Slothicles:</p>
@@ -118,13 +119,17 @@
     <footer>
         <div class="score-bar">
             <p>Score:</p>
-            <span>0000</span>
+            <span id="score">0000</span>
+        </div>
+        <div class="score-bar">
+            <p>Time:</p>
+            <span id="time">0000</span>
+        </div>
+        <div class="score-bar">
+            <p>Level:</p>
+            <span id="level">0000</span>
         </div>
     </footer>
-    <div class="test-bar">
-        <p>Time: <span id="time"></span></p>
-        <p>Score: <span id="score"></span></p>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script src="./js/master.js"></script>

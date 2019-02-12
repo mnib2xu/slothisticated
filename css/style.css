@@ -133,7 +133,7 @@ footer {
   max-width: 150px;
 }
 
-.score-bar p, span {
+.score-bar p, .score-bar span {
   margin: 5px;
   padding: 20px 0 ;
 }
@@ -143,4 +143,34 @@ footer {
 .test-bar {
   position: absolute;
   bottom:20px;
+}
+
+/*** Game 2 stuff ***/ 
+.reactionBox {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reactionBox span{
+}
+#react-text{
+  font-size: 40px;
+}
+.reactionBox img{
+  height: 100%;
+}
+#reaction-time-box{
+  padding: 20px;
+  font-size: 30px;
+}
+.hidden {
+  display: none;
+}
+.passed {
+  background: lightgreen;
+}
+.failed {
+  background: pink;
 }
