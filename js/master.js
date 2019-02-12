@@ -108,7 +108,6 @@ $(document).ready(function () {
   })
   $("#reaction-result").click(function () {
     myGame2.remove();
-    brain.loadRandomGame();
   })
 
   // GAME THREE

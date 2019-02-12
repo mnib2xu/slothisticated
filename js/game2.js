@@ -90,6 +90,7 @@ class Game2 extends MasterGame{
     }else{
       this.decreaseLive();
     }
+    setTimeout(function(){ this.loadRandomGame() }.bind(this),3000);
   }
 
   change() {
