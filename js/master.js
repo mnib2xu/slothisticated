@@ -5,15 +5,14 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.score = 0;
-    this.level = 4;
   }
 
   init() {
+    this.__proto__.level = 1;
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
     this.timer();
     this.updateStats();
-    this.__proto__.level = 1;
   }
 
   loadRandomGame(gameArray) {
@@ -37,6 +36,7 @@ class MasterGame {
       let temp = newArray[counter];
       newArray[counter] = newArray[index];
       newArray[index] = temp;
+      console.log(this.__proto__.level)
     }
     return newArray;
   }
@@ -44,6 +44,7 @@ class MasterGame {
   updateStats() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
+    $("#level").text(this.level)
     if (this.slothicles === 0) {
       alert("you are not slothisticated enough for this game!");
       this.slothicles = 3;
@@ -107,12 +108,24 @@ $(document).ready(function () {
   })
   $("#reaction-wait").click(function () {
     myGame2.clickedToSoon();
+    if (myGame2.gamePassed) {
+      brain.score++;
+    } else {
+      brain.slothicles -= 1;
+      $(".live-bar ul li:last-child").remove()
+    }
   })
   $("#reaction-go").click(function () {
     myGame2.reaction();
+    if (myGame2.gamePassed) {
+      brain.score++;
+    } else {
+      brain.slothicles -= 1;
+      $(".live-bar ul li:last-child").remove()
+    }
   })
   $("#reaction-result").click(function () {
     myGame2.remove();
-    myGame2.create();
+    brain.loadRandomGame(allGames);
   })
 })

@@ -134,7 +134,7 @@ footer {
   max-width: 150px;
 }
 
-.score-bar p, span {
+.score-bar p, .score-bar span {
   margin: 5px;
   padding: 20px 0 ;
 }
@@ -155,10 +155,16 @@ footer {
   align-items: center;
 }
 .reactionBox span{
+}
+#react-text{
   font-size: 40px;
 }
 .reactionBox img{
   height: 100%;
+}
+#reaction-time-box{
+  padding: 20px;
+  font-size: 30px;
 }
 .hidden {
   display: none;
