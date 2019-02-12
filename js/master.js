@@ -6,7 +6,6 @@ class MasterGame {
     this.slothicles = 4;
     this.__proto__.allGames = [];
     this.__proto__.score = 0; 
-    this.level = 1;
   }
 
   decreaseLive() {
@@ -16,18 +15,16 @@ class MasterGame {
 
   increaseScore() {
     this.__proto__.__proto__.score++;
-    $("#score").text(this.__proto__.__proto__.score);
-    
-    if (this.__proto__.__proto__.score > 2) {
+    if (this.__proto__.__proto__.score > 6) {
+      this.__proto__.level = 4;
+    }else if (this.__proto__.__proto__.score > 4) {
+      this.__proto__.level = 3;
+    }else if (this.__proto__.__proto__.score > 2) {
       this.__proto__.level = 2;
     }
-    if (this.score > 4) {
-      this.__proto__.level = 3;
-    }
-    if (this.score > 6) {
-      this.__proto__.level = 4;
-    }
-    
+
+    $("#score").text(this.__proto__.__proto__.score);
+    $("#level").text(this.__proto__.level);
   }
 
   init() {
@@ -108,9 +105,6 @@ $(document).ready(function () {
   })
   $("#reaction-go").click(function () {
     myGame2.reaction();
-  })
-  $("#reaction-result").click(function () {
-    myGame2.remove();
   })
 
   // GAME THREE
