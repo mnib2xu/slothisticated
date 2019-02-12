@@ -111,4 +111,8 @@ $(document).ready(function () {
   $("#reaction-go").click(function () {
     myGame2.reaction();
   })
+  $("#reaction-result").click(function () {
+    myGame2.remove();
+    myGame2.create();
+  })
 })

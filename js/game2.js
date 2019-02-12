@@ -4,11 +4,11 @@ class Game2 extends MasterGame{
 
   constructor(score, slothicles) {
     super(score, slothicles);
+    this.timer;
     this.timeLimit;
     this.startTime;
     this.elapsedTime;
     this.tooSoon = false;
-    this.gameFinished = false;
   }
   create() {
     $("#random-question").text("React as fast as you can!");
@@ -29,18 +29,21 @@ class Game2 extends MasterGame{
       default:
         break;
     }
-    this.tooSoon = false;
-    this.randomTimer();
+    this.randomTimer(); 
   }
 
   randomTimer() {
     var sec = 0;
     var randomTime = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;  
-    debugger
     var timer = setInterval(function () {
       sec++;
-      if (sec > randomTime || this.tooSoon) {
+      console.log(sec);
+      if (sec > randomTime) {
         this.startTime = Date.now();
+        clearInterval(timer);
+        this.change();
+      }
+      if (this.tooSoon) {
         clearInterval(timer);
         this.change();
       }
@@ -53,28 +56,27 @@ class Game2 extends MasterGame{
   }
 
   reaction() {
-    if(this.gameFinished){
-      this.gameFinished = false;
-      this.remove();
-      this.create();
+    if(!this.tooSoon){
+      this.elapsedTime = Date.now() - this.startTime;
+      $("#reaction-time").text(this.elapsedTime);
+      $("#time-limit").text(this.timeLimit);
     }
-    this.elapsedTime = Date.now() - this.startTime;
-    $("#reaction-time-box").toggleClass("hidden");
-    $("#reaction-time").text(this.elapsedTime);
-    $("#time-limit").text(this.timeLimit);
-    if(this.elapsedTime < this.timeLimit){
-      $("#reaction-go").addClass("passed");
-      $("#random-question").text("Very slothisticated!")
-    }else if(this.elapsedTime > this.timeLimit){
-      $("#reaction-go").addClass("failed");
-      $("#sloth-reaction").attr("src","img/come-on-man.jpg");
-      $("#random-question").text("You were to slowth!")
-    }else {
-      $("#reaction-go").addClass("failed");
-      $("#sloth-reaction").attr("src","img/come-on-man.jpg");
+    $("#reaction-go").toggleClass("hidden");
+    $("#reaction-result").toggleClass("hidden");
+
+    if(this.tooSoon){
+      $("#reaction-time").text("too fast");
+      $("#reaction-result").addClass("failed");
+      $("#sloth-result").attr("src","img/come-on-man.jpg");
       $("#random-question").text("You were to fast!")
+    }else if(this.elapsedTime < this.timeLimit){
+      $("#reaction-result").addClass("passed");
+      $("#sloth-result").attr("src","img/react.jpg");
+    }else if(this.elapsedTime > this.timeLimit){
+      $("#reaction-result").addClass("failed");
+      $("#sloth-result").attr("src","img/come-on-man.jpg");
+      $("#random-question").text("You were to slowth!")
     }
-    this.gameFinished = true;
   }
 
   change() {
@@ -83,12 +85,12 @@ class Game2 extends MasterGame{
   }
 
   remove() {
+    this.tooSoon = false;
+    clearInterval(this.timer);
     $("#game2").css("display","none");
+    $("#reaction-result").addClass("hidden");
+    $("#reaction-result").removeClass("passed failed");
     $("#reaction-wait").removeClass("hidden");
-    $("#reaction-go").addClass("hidden");
-    $("#reaction-go").removeClass("passed failed");
-    $("#sloth-reaction").attr("src","img/react.jpg");
-    $("#reaction-time-box").addClass("hidden");
     $("#random-question").text("");
   }
 }
