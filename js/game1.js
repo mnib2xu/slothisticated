@@ -91,6 +91,27 @@ class Game1 extends MasterGame{
         break;
     }
   }
+  updateMaster(object){
+    if (this.checkAnswer(object.children[0].children[0].textContent, object.style.backgroundColor, object.style.borderColor, object.children[0].children[1].style.backgroundColor)) {
+      this.increaseScore();
+    }else{
+      this.decreaseLive();
+    }
+  }
+  // Fisher-Yates Shuffle
+  shuffleArray(array) {
+    var newArray = array.map((elem) => elem);
+    let counter = newArray.length;
+    while (counter > 0) {
+      let index = Math.floor(Math.random() * counter);
+      counter--;
+      let temp = newArray[counter];
+      newArray[counter] = newArray[index];
+      newArray[index] = temp;
+      console.log(this.__proto__.level)
+    }
+    return newArray;
+  }
   doNotRepeat(array) {
     var same = true;
     while (same) {

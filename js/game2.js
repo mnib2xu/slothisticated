@@ -81,6 +81,15 @@ class Game2 extends MasterGame{
       $("#random-question").text("You were to slowth!")
       this.gamePassed = false;
     }
+    this.updateMaster();
+  }
+
+  updateMaster() {
+    if(this.gamePassed){
+      this.increaseScore();
+    }else{
+      this.decreaseLive();
+    }
   }
 
   change() {

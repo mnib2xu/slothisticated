@@ -4,17 +4,35 @@ class Game3 extends MasterGame {
 
   constructor(score, slothicles) {
     super(score, slothicles);
-    this.timeLimit;
-    this.startTime;
-    this.elapsedTime;
-    this.tooSoon = false;
-    this.gameFinished = false;
+    this.amountOfRepeats;
   }
 
-  newGame() {
+  create() {
+    switch (this.level) {
+      case 1:
+        this.amountOfRepeats = 2;
+        break;
+      case 2:
+        this.amountOfRepeats = 4;
+        break;
+      case 3:
+        this.amountOfRepeats = 6;
+        break;
+      case 4:
+        this.amountOfRepeats = 8;
+        break;
+      default:
+        this.amountOfRepeats = 2;
+        break;
+    }
     $("#game3").css("display", "flex");
     this.letButtonsListen();
     this.clearGame();
+  }
+
+  remove() {
+    $("#game3").css("display", "none");
+    $("#random-question").text("");
   }
 
   letButtonsListen() {
@@ -81,7 +99,7 @@ class Game3 extends MasterGame {
     if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
 
       alert('Try again! ...From scratch!');
-      this.newGame();
+      this.create();
       this.decreaseLive();
     } else {
       console.log('Good Move!');

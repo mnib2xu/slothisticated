@@ -5,11 +5,26 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.score = 0;
+    this.allGames = [];
   }
 
   decreaseLive() {
     this.slothicles -= 1;
     $(".live-bar ul li:last-child").remove();
+  }
+
+  increaseScore() {
+    this.score++;
+    $("#score").text(this.score);
+    if (this.score > 2) {
+      this.__proto__.level = 2;
+    }
+    if (this.score > 4) {
+      this.__proto__.level = 3;
+    }
+    if (this.score > 6) {
+      this.__proto__.level = 4;
+    }
   }
 
   init() {
@@ -31,21 +46,6 @@ class MasterGame {
     return array[Math.floor(Math.random() * array.length)];
   }
 
-  // Fisher-Yates Shuffle
-  shuffleArray(array) {
-    var newArray = array.map((elem) => elem);
-    let counter = newArray.length;
-    while (counter > 0) {
-      let index = Math.floor(Math.random() * counter);
-      counter--;
-      let temp = newArray[counter];
-      newArray[counter] = newArray[index];
-      newArray[index] = temp;
-      console.log(this.__proto__.level)
-    }
-    return newArray;
-  }
-
   updateStats() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
@@ -59,20 +59,10 @@ class MasterGame {
   timer() {
     var sec = 0;
     var timer = setInterval(function () {
-      document.getElementById('time').innerHTML = '00:' + sec;
+      $("#time").innerHTML = '00:' + sec;
       sec++;
-      if (sec > 10) {
-        this.__proto__.level = 2;
-      }
-      if (sec > 20) {
-        this.__proto__.level = 3;
-      }
-      if (sec > 30) {
-        this.__proto__.level = 4;
-      }
       if (sec > 1000) {
         clearInterval(timer);
-        alert(this.score)
       }
     }.bind(this), 1000);
   }
@@ -81,14 +71,14 @@ class MasterGame {
 // document ready
 $(document).ready(function () {
   var brain = new MasterGame();
-  $("#start-game").click(function () {
-    brain.init();
-  })
   let myGame = new Game1();
   let myGame2 = new Game2();
   let repeatThePattern = new Game3();
-  var allGames = [myGame, myGame2, repeatThePattern];
+  var allGames = [myGame, myGame2];
 
+  $("#start-game").click(function () {
+    brain.init();
+  })
 
   // Game ONE
   $("#start-game-1").click(function (event) {
@@ -98,14 +88,7 @@ $(document).ready(function () {
     myGame.remove();
   })
   $(".object").click(function (event) {
-    var object = event.currentTarget;
-    if (myGame.checkAnswer(object.children[0].children[0].textContent, object.style.backgroundColor, object.style.borderColor, object.children[0].children[1].style.backgroundColor)) {
-      brain.score++;
-    } else {
-      brain.slothicles -= 1;
-      $(".live-bar ul li:last-child").remove()
-    }
-    brain.updateStats();
+    myGame.updateMaster(event.currentTarget);
     brain.loadRandomGame(allGames);
   })
 
@@ -118,21 +101,9 @@ $(document).ready(function () {
   })
   $("#reaction-wait").click(function () {
     myGame2.clickedToSoon();
-    if (myGame2.gamePassed) {
-      brain.score++;
-    } else {
-      brain.slothicles -= 1;
-      $(".live-bar ul li:last-child").remove()
-    }
   })
   $("#reaction-go").click(function () {
     myGame2.reaction();
-    if (myGame2.gamePassed) {
-      brain.score++;
-    } else {
-      brain.slothicles -= 1;
-      $(".live-bar ul li:last-child").remove()
-    }
   })
   $("#reaction-result").click(function () {
     myGame2.remove();
@@ -141,8 +112,9 @@ $(document).ready(function () {
 
   // GAME THREE
   $("#start-game-3").click(function () {
-    repeatThePattern.newGame();
+    repeatThePattern.create();
   })
   $("#stop-game-3").click(function () {
+    repeatThePattern.remove();
   })
 })
