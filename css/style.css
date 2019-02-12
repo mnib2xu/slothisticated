@@ -77,7 +77,7 @@ body {
 
 .grid2x2>div {
   display: flex;
-  flex-basis: calc(35% - 40px);
+  /* flex-basis: calc(3% - 40px); */
   justify-content: center;
   flex-direction: column;
 }
