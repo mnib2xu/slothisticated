@@ -187,7 +187,22 @@ footer {
   font-size: 50px;
   text-transform: uppercase;
 }
-
+#start-the-game{
+  padding: 20px 40px;
+  background-color: patternArray2;
+  color: #FBF6D2;
+  background-color: #5634AA;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-top: 40px;
+}
+#hail-sloth{
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -238px;
+}
 .patterns{
   display: flex;
   flex-wrap: wrap;
