@@ -145,3 +145,27 @@ footer {
   position: absolute;
   bottom:20px;
 }
+
+/*** Game 2 stuff ***/ 
+.reactionBox {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reactionBox span{
+  font-size: 40px;
+}
+.reactionBox img{
+  height: 100%;
+}
+.hidden {
+  display: none;
+}
+.passed {
+  background: lightgreen;
+}
+.failed {
+  background: pink;
+}
