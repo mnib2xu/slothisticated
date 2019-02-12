@@ -96,6 +96,7 @@ function createPatterns() {
     $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
     $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
   }
+  console.log(amountOfPatternBoxes);
 }
 
 // document ready

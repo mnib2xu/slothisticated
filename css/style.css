@@ -175,6 +175,18 @@ footer {
   background: pink;
 }
 
+/*** Main Menu ***/
+.main-menu{
+  width: 100%;
+  color: #5634AA;
+  text-align: center;
+  
+}
+#main-title{
+  font-weight: 100;
+  font-size: 50px;
+  text-transform: uppercase;
+}
 
 .patterns{
   display: flex;
