@@ -5,6 +5,7 @@ class Game3 extends MasterGame {
   constructor(score, slothicles) {
     super(score, slothicles);
     this.amountOfRepeats;
+    this.gamePassed = false;
   }
 
   create() {
@@ -45,18 +46,11 @@ class Game3 extends MasterGame {
   clearGame() {
     $("#random-question").text("Repeat the pattern");
     this.currentGame = [];
-    this.gameCount = 0;
     this.possibilities = ['#green', '#blue', '#red', '#dark']
-    this.addCount();
-  }
 
-  addCount() {
-    this.gameCount++;
-    this.generateMove();
-  }
-
-  generateMove() {
-    this.currentGame.push(this.possibilities[(Math.floor(Math.random() * 4))]);
+    for (var i = 0; i < this.amountOfRepeats; i++){
+      this.currentGame.push(this.possibilities[(Math.floor(Math.random() * 4))]);
+    }
     this.showMoves();
   }
 
@@ -90,28 +84,17 @@ class Game3 extends MasterGame {
     this.playerTurn(field);
   }
 
-  nextLevel() {
-    this.addCount();
-  }
-
   playerTurn() {
-    
     if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
-
-      alert('Try again! ...From scratch!');
-      this.create();
+      //alert('Try again! ...From scratch!');
       this.decreaseLive();
     } else {
-      console.log('Good Move!');
+      //console.log('Good Move!');
       var check = this.player.length === this.currentGame.length;
       if (check) {
-        if (this.gameCount == 10) {
-          alert('You won! Congrats.');
-        } else {
-          alert('Next round!');
-          this.nextLevel();
-        }
+        this.increaseScore();
       }
     }
+    this.loadRandomGame();
   }
 }

@@ -97,6 +97,7 @@ class Game1 extends MasterGame{
     }else{
       this.decreaseLive();
     }
+    this.loadRandomGame();
   }
   // Fisher-Yates Shuffle
   shuffleArray(array) {

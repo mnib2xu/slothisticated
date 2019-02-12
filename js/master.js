@@ -5,7 +5,7 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.score = 0;
-    this.allGames = [];
+    this.__proto__.allGames = [];
   }
 
   decreaseLive() {
@@ -35,9 +35,11 @@ class MasterGame {
     this.updateStats();
   }
 
-  loadRandomGame(gameArray) {
+  loadRandomGame() {
+    var gameArray = this.__proto__.__proto__.allGames;
     gameArray[0].remove();
     gameArray[1].remove();
+    gameArray[2].remove();
     var randomGame = this.getRandomItem(gameArray);
     randomGame.create();
   }
@@ -70,16 +72,16 @@ class MasterGame {
 
 // document ready
 $(document).ready(function () {
-  var brain = new MasterGame();
+  let brain = new MasterGame();
   let myGame = new Game1();
   let myGame2 = new Game2();
   let repeatThePattern = new Game3();
-  var allGames = [myGame, myGame2];
-
+  brain.__proto__.allGames.push(myGame);
+  brain.__proto__.allGames.push(myGame2);
+  brain.__proto__.allGames.push(repeatThePattern);
   $("#start-game").click(function () {
     brain.init();
   })
-
   // Game ONE
   $("#start-game-1").click(function (event) {
     myGame.create();
@@ -89,7 +91,6 @@ $(document).ready(function () {
   })
   $(".object").click(function (event) {
     myGame.updateMaster(event.currentTarget);
-    brain.loadRandomGame(allGames);
   })
 
   // GAME TWO
@@ -107,7 +108,7 @@ $(document).ready(function () {
   })
   $("#reaction-result").click(function () {
     myGame2.remove();
-    brain.loadRandomGame(allGames);
+    brain.loadRandomGame();
   })
 
   // GAME THREE
@@ -117,4 +118,5 @@ $(document).ready(function () {
   $("#stop-game-3").click(function () {
     repeatThePattern.remove();
   })
+
 })
