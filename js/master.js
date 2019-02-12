@@ -5,6 +5,7 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.score = 0;
+    this.level = 4;
   }
 
   init() {
@@ -12,12 +13,13 @@ class MasterGame {
     $("#score").text(this.score)
     this.timer();
     this.updateStats();
+    this.__proto__.level = 1;
   }
 
   loadRandomGame(gameArray) {
     gameArray[0].remove();
     gameArray[1].remove();
-    var randomGame = gameArray[0];
+    var randomGame = this.getRandomItem(gameArray);
     randomGame.create();
   }
 
@@ -97,21 +99,16 @@ $(document).ready(function () {
     brain.updateStats();
     brain.loadRandomGame(allGames);
   })
-
-
   $("#start-game-2").click(function () {
     myGame2.create();
   })
   $("#stop-game-2").click(function () {
     myGame2.remove();
   })
-  $(".answer").click(function () {
-    if (myGame2.checkAnswer(event.currentTarget.textContent)) {
-      brain.score++;
-    } else {
-      brain.slothicles -= 1;
-    }
-    brain.updateStats();
-    brain.loadRandomGame(allGames);
+  $("#reaction-wait").click(function () {
+    myGame2.clickedToSoon();
+  })
+  $("#reaction-go").click(function () {
+    myGame2.reaction();
   })
 })
