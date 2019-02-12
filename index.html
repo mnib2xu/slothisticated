@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width">
     <title>Slothisticated</title>
     <link href="./css/style.css" rel="stylesheet" type="text/css" media="screen" />
-
+    <link href="./css/style-ReactionGame.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="./css/style-RepeatThePattern.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>
 
-    <button id="start-game"> Start the Game! </button>
-    <button id="start-game-1"> Start Game 1 </button>
-    <button id="stop-game-1"> remove Game 1 </button>
-    <button id="start-game-2"> Start Game 2 </button>
-    <button id="stop-game-2"> Remove Game 2 </button>
+    <button id="start-game-1">Ini.Game.1</button>
+    <button id="stop-game-1">Rm.Game.1</button>
+    <button id="start-game-2">Ini.Game.2</button>
+    <button id="stop-game-2">Rm.Game.2</button>
+    <button id="start-game-3">Ini.Game.3</button>
+    <button id="stop-game-3">Rm.Game.3</button>
 
     <header>
         <!-- QUESTION AREA -->
@@ -25,9 +27,9 @@
     </header>
 
     <section>
-        <!-- GAME ONE -->
+        <!-- COLOR CIRCLE ID | GAME ONE -->
         <div id="game1" class="grid2x2" style="display:none;">
-            <div id="object1" class="object box1">
+            <div id="object1" class="object">
                 <div>
                     <span class="innerText"></span>
                     <div class="innercircle" id="innercircle1">
@@ -35,7 +37,7 @@
                 </div>
             </div>
 
-            <div id="object2" class="object box2">
+            <div id="object2" class="object">
                 <div>
                     <span class="innerText"></span>
                     <div class="innercircle" id="innercircle2">
@@ -43,7 +45,7 @@
                 </div>
             </div>
 
-            <div id="object3" class="object box3">
+            <div id="object3" class="object">
                 <div>
                     <span class="innerText"></span>
                     <div class="innercircle" id="innercircle3">
@@ -51,7 +53,7 @@
                 </div>
             </div>
 
-            <div id="object4" class="object box4">
+            <div id="object4" class="object">
                 <div>
                     <span class="innerText"></span>
                     <div class="innercircle" id="innercircle4">
@@ -61,7 +63,7 @@
         </div>
     </section>
     <section>
-        <!-- GAME TWO -->
+        <!-- REACTION CLICK GAME | GAME TWO -->
         <div id="game2" style="display:none;">
             <div class="reactionBox" id="reaction-wait">
                 <span>Click when the Sloth appears</span>
@@ -74,9 +76,30 @@
                 </div>
             </div>
             <div class="reactionBox hidden" id="reaction-result">
-                
+            </div>
+        </div>
+    </section>
+    <section>
+        <!-- REPEAT THE PATTERN | GAME THREE -->
+        <div id="game3" class="grid2x2" style="display:none;">
+            <div id="blue" class="box1 gamebutton">
+                <div>
+                </div>
             </div>
 
+            <div id="green" class="box2 gamebutton">
+                <div>
+                </div>
+            </div>
+
+            <div id="red" class="box3 gamebutton">
+                <div>
+                </div>
+            </div>
+
+            <div id="dark" class="box4 gamebutton">
+                <div>
+                </div>
             </div>
         </div>
     </section>
@@ -107,6 +130,8 @@
     <script src="./js/master.js"></script>
     <script src="./js/game1.js"></script>
     <script src="./js/game2.js"></script>
+    <script src="./js/repeatThePattern.js"></script>
+
 </body>
 
 </html>

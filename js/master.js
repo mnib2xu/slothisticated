@@ -8,6 +8,11 @@ class MasterGame {
     this.level = 4;
   }
 
+  decreaseLive() {
+    this.slothicles -= 1;
+    $(".live-bar ul li:last-child").remove();
+  }
+
   init() {
     $("#slothicles").text(this.slothicles)
     $("#score").text(this.score)
@@ -80,8 +85,11 @@ $(document).ready(function () {
   })
   let myGame = new Game1();
   let myGame2 = new Game2();
-  var allGames = [myGame, myGame2];
+  let repeatThePattern = new Game3();
+  var allGames = [myGame, myGame2, repeatThePattern];
 
+
+  // Game ONE
   $("#start-game-1").click(function (event) {
     myGame.create();
   })
@@ -99,6 +107,8 @@ $(document).ready(function () {
     brain.updateStats();
     brain.loadRandomGame(allGames);
   })
+
+  // GAME TWO
   $("#start-game-2").click(function () {
     myGame2.create();
   })
@@ -110,5 +120,12 @@ $(document).ready(function () {
   })
   $("#reaction-go").click(function () {
     myGame2.reaction();
+  })
+
+  // GAME THREE
+  $("#start-game-3").click(function () {
+    repeatThePattern.newGame();
+  })
+  $("#stop-game-3").click(function () {
   })
 })
