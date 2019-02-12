@@ -17,7 +17,7 @@ body {
 }
 
 .question-area h1 {
-  margin: 0 20px;
+  /*margin: 0 20px;*/
   max-width: 600px;
 }
 
@@ -113,7 +113,6 @@ body {
   /* display: none; */
 }
 
-
 /* SCORE BAR */
 footer {
   margin-top: 20px;
@@ -174,4 +173,39 @@ footer {
 }
 .failed {
   background: pink;
+}
+
+
+.patterns{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.patterns div{
+  flex: 1;
+}
+.pattern-circle{
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+}
+.pattern-triangle{
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 80px solid;
+}
+.pattern-triangle-upside-down{
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 80px solid;
+}
+.pattern-box{
+  height: 80px;
+  width: 80px;
+  min-height: 80px;
+  min-width: 80px;
+  max-height: 80px;
+  max-width: 80px;
+  background-color: white;
+  box-sizing: border-box;
 }

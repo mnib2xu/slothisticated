@@ -73,8 +73,34 @@ class MasterGame {
   }
 }
 
+window.onresize = function(event) {
+  createPatterns();
+};
+
+function createPatterns() {
+  $(".patterns").children().remove();
+  var windowWidth = $(window).width();
+  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
+  var patternArray = ['<div class="pattern-circle"></div>','<div class="pattern-triangle-upside-down"></div>',''];
+  var patternArray2 = ['<div class="pattern-circle"></div>','<div class="pattern-triangle"></div>',''];
+  var amountOfPatternBoxes = Math.floor(windowWidth / 80);
+  for (var i = 0; i < amountOfPatternBoxes; i++){
+    $(".patterns").append('<div class="pattern-box"></div>');
+    $(".patterns").children(":last-child").append(patternArray[Math.floor(Math.random() * patternArray.length)])
+    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+  }
+  for (var i = 0; i < amountOfPatternBoxes; i++){
+    $(".patterns").append('<div class="pattern-box"></div>');
+    $(".patterns").children(":last-child").append(patternArray2[Math.floor(Math.random() * patternArray2.length)])
+    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+  }
+}
+
 // document ready
 $(document).ready(function () {
+  createPatterns();
   var brain = new MasterGame();
   $("#start-game").click(function () {
     brain.init();
@@ -128,4 +154,8 @@ $(document).ready(function () {
     myGame2.remove();
     brain.loadRandomGame(allGames);
   })
+
+
+
+
 })
