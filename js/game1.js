@@ -8,6 +8,7 @@ class Game1 extends MasterGame{
     this.colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(217, 225, 190)"];
     this.randomColor = "";
     this.questionType = "";
+    this.countdown;
   }
   create() {
     $("#game1").css("display","flex");
@@ -41,7 +42,32 @@ class Game1 extends MasterGame{
       });
     }
     this.createQuestion();
+    this.startCountdown();
   }
+
+  startCountdown() {
+    $("#myProgress").css("display","block")
+    var elem = document.getElementById("myBar"); 
+    var width = 100;
+    this.countdown = setInterval(function(){
+      debugger
+      if (width === 0) {
+        this.remove();
+        this.decreaseLive("game1");
+        $("#myProgress").css("display","none")
+        clearInterval(this.countdown);
+      } else {
+        width--; 
+        elem.style.width = width + '%'; 
+      }
+    }.bind(this), 50);
+  }
+
+  stopCountdown() {
+    $("#myProgress").css("display","none")
+    clearInterval(this.countdown);
+  }
+
   createQuestion() {
     this.randomColor = this.getRandomItem(this.colorArray);
     var types = ["bg"];
@@ -94,6 +120,7 @@ class Game1 extends MasterGame{
   updateMaster(object){
     this.remove();
     if (this.checkAnswer(object.children[0].children[0].textContent, object.style.backgroundColor, object.style.borderColor, object.children[0].children[1].style.backgroundColor)) {
+      this.stopCountdown();
       this.increaseScore("game1");
     }else{
       this.decreaseLive("game1");

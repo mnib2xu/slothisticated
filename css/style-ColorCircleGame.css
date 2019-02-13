@@ -46,3 +46,21 @@
   width: 10px;
   border-radius: 100%;
 }
+
+#myProgress {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 500px;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+#myBar {
+  width: 200px;
+  height: 30px;
+  background-color: rgb(86, 52, 170);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+}
