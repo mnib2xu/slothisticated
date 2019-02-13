@@ -29,105 +29,107 @@
         </div>
 
     </header>
-    <section>
-        <!-- MENU -->
-        <div id="menu" style="display:flex;"> 
-            <div class="main-menu">
-                <h1 class="main-title">Slothisticated</h1>
-                <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
-                <button id="start-the-game">Let's Sloth</button>
-                <br />
-               <!-- <img id="hail-sloth" src="img/sloth-up.png"> 
+    <main>
+        <section>
+            <!-- MENU -->
+            <div id="menu" style="display:flex;">
+                <div class="main-menu">
+                    <h1 class="main-title">Slothisticated</h1>
+                    <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
+                    <button id="start-the-game">Let's Sloth</button>
+                    <br />
+                    <!-- <img id="hail-sloth" src="img/sloth-up.png"> 
                 -->
+                </div>
             </div>
-        </div>
-        <!-- CountDown -->
-        <div id="countdown" style="display:none;">
-            <div class="main-menu">
-                <h1 class="main-title">Get ready!</h1>
-                <span id="get-ready"></span>
+            <!-- CountDown -->
+            <div id="countdown" style="display:none;">
+                <div class="main-menu">
+                    <h1 class="main-title">Get ready!</h1>
+                    <span id="get-ready"></span>
+                </div>
             </div>
-        </div>
-    </section>
-    <section>
-        <!-- COLOR CIRCLE ID | GAME ONE -->
-        <div id="game1" class="grid2x2" style="display:none;">
-            <div id="object1" class="object">
-                <div>
-                    <span class="innerText"></span>
-                    <div class="innercircle" id="innercircle1">
+        </section>
+        <section>
+            <!-- COLOR CIRCLE ID | GAME ONE -->
+            <div id="game1" class="grid2x2" style="display:none;">
+                <div id="object1" class="object">
+                    <div>
+                        <span class="innerText"></span>
+                        <div class="innercircle" id="innercircle1">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="object2" class="object">
+                    <div>
+                        <span class="innerText"></span>
+                        <div class="innercircle" id="innercircle2">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="object3" class="object">
+                    <div>
+                        <span class="innerText"></span>
+                        <div class="innercircle" id="innercircle3">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="object4" class="object">
+                    <div>
+                        <span class="innerText"></span>
+                        <div class="innercircle" id="innercircle4">
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div id="object2" class="object">
-                <div>
-                    <span class="innerText"></span>
-                    <div class="innercircle" id="innercircle2">
+        </section>
+        <section>
+            <!-- REACTION CLICK GAME | GAME TWO -->
+            <div id="game2" style="display:none;">
+                <div class="reactionBox" id="reaction-wait">
+                    <span id="react-text">Click when the Sloth appears</span>
+                </div>
+                <div class="reactionBox hidden" id="reaction-go">
+                    <img id="sloth-reaction" src="img/react.jpg" alt="sloth-face">
+                </div>
+                <div class="reactionBox hidden" id="reaction-result">
+                    <img id="sloth-result" alt="sloth-face">
+                    <div id="reaction-time-box">
+                        <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
+                        <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div>
                     </div>
                 </div>
             </div>
+        </section>
+        <section>
+            <!-- REPEAT THE PATTERN | GAME THREE -->
+            <div id="game3" class="grid2x2" style="display:none;">
+                <div id="blue" class="box1 gamebutton">
+                    <div>
+                    </div>
+                </div>
 
-            <div id="object3" class="object">
-                <div>
-                    <span class="innerText"></span>
-                    <div class="innercircle" id="innercircle3">
+                <div id="green" class="box2 gamebutton">
+                    <div>
+                    </div>
+                </div>
+
+                <div id="red" class="box3 gamebutton">
+                    <div>
+                    </div>
+                </div>
+
+                <div id="dark" class="box4 gamebutton">
+                    <div>
+
                     </div>
                 </div>
             </div>
-
-            <div id="object4" class="object">
-                <div>
-                    <span class="innerText"></span>
-                    <div class="innercircle" id="innercircle4">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <!-- REACTION CLICK GAME | GAME TWO -->
-        <div id="game2" style="display:none;">
-            <div class="reactionBox" id="reaction-wait">
-                <span id="react-text">Click when the Sloth appears</span>
-            </div>
-            <div class="reactionBox hidden" id="reaction-go">
-                <img id="sloth-reaction" src="img/react.jpg" alt="sloth-face">
-            </div>
-            <div class="reactionBox hidden" id="reaction-result">
-                <img id="sloth-result" alt="sloth-face">
-                <div id="reaction-time-box">
-                    <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
-                    <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <!-- REPEAT THE PATTERN | GAME THREE -->
-        <div id="game3" class="grid2x2" style="display:none;">
-            <div id="blue" class="box1 gamebutton">
-                <div>
-                </div>
-            </div>
-
-            <div id="green" class="box2 gamebutton">
-                <div>
-                </div>
-            </div>
-
-            <div id="red" class="box3 gamebutton">
-                <div>
-                </div>
-            </div>
-
-            <div id="dark" class="box4 gamebutton">
-                <div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <!-- LIVES BAR -->
     <div class="live-bar" style="display:none;">
         <p>Slothicles:</p>

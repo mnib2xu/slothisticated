@@ -20,13 +20,6 @@ body {
   max-width: 600px;
 }
 
-
-
-
-
-
-
-
 /* SLOSTHICLES LIVE BAR */
 .live-bar {
   display: flex;
@@ -69,8 +62,11 @@ body {
 
 
 /* SCORE BAR */
-section {
-  flex-grow: 1;
+main  {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
