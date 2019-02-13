@@ -11,6 +11,21 @@ class MasterGame {
   decreaseLive() {
     this.slothicles -= 1;
     $(".live-bar ul li:last-child").remove();
+    $("#countdown").css("display","flex");
+    $("#random-question").css("display","flex");
+    var timeleft = 3;
+    $("#get-ready").text(timeleft + "...");
+    var downloadTimer = setInterval(function(){
+    createPatterns();
+    timeleft--;
+    $("#get-ready").text(timeleft + "...");
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      $("#countdown").css("display","none");
+      $(".patterns").children().remove();
+      this.loadRandomGame();
+    }
+    }.bind(this),1000);
   }
 
   increaseScore() {
@@ -25,6 +40,7 @@ class MasterGame {
 
     $("#score").text(this.__proto__.__proto__.score);
     $("#level").text(this.__proto__.level);
+    this.loadRandomGame();
   }
 
   init() {
@@ -45,7 +61,7 @@ class MasterGame {
     }
     gameArray[0].remove();
     gameArray[1].remove();
-    //gameArray[2].remove();
+    gameArray[2].remove();
     var randomGame = this.getRandomItem(gameArray);
     randomGame.create();
   }
@@ -75,11 +91,11 @@ class MasterGame {
     }.bind(this), 1000);
   }
 }
-
+/*
 window.onresize = function(event) {
   createPatterns();
 };
-
+*/
 function createPatterns() {
   $(".patterns").children().remove();
   var windowWidth = $(window).width();
@@ -112,7 +128,7 @@ $(document).ready(function () {
   let repeatThePattern = new Game3();
   brain.__proto__.allGames.push(myGame);
   brain.__proto__.allGames.push(myGame2);
-  //brain.__proto__.allGames.push(repeatThePattern);
+  brain.__proto__.allGames.push(repeatThePattern);
   $("#start-game").click(function () {
     brain.init();
   })
@@ -138,7 +154,6 @@ $(document).ready(function () {
     }
     },1000);
   })
-
 
   // Game ONE
   $("#start-game-1").click(function (event) {

@@ -93,16 +93,17 @@ class Game3 extends MasterGame {
     if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
 
       //ENTERS THIS PART IF INCORRECT
-      $(".gamebutton").off("click")
+      $(".gamebutton").off("click");
+      this.remove();
       this.decreaseLive();
     } else {
 
       // ENTERS THIS PART IF CLICK IS CORRECT
 
       if (this.player.length === this.currentGame.length) {
-        $(".gamebutton").off("click")
+        $(".gamebutton").off("click");
+        this.remove();
         this.increaseScore();
-        
         // this.create();
       }
     }

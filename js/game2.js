@@ -86,12 +86,13 @@ class Game2 extends MasterGame{
   }
 
   updateMaster() {
+    this.remove();
     if(this.gamePassed){
       this.increaseScore();
     }else{
       this.decreaseLive();
     }
-    setTimeout(function(){ this.loadRandomGame() }.bind(this),3000);
+    //setTimeout(function(){ this.loadRandomGame() }.bind(this),3000);
   }
 
   change() {

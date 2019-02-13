@@ -92,12 +92,12 @@ class Game1 extends MasterGame{
     }
   }
   updateMaster(object){
+    this.remove();
     if (this.checkAnswer(object.children[0].children[0].textContent, object.style.backgroundColor, object.style.borderColor, object.children[0].children[1].style.backgroundColor)) {
       this.increaseScore();
     }else{
       this.decreaseLive();
     }
-    this.loadRandomGame();
   }
   // Fisher-Yates Shuffle
   shuffleArray(array) {
