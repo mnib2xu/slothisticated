@@ -107,30 +107,5 @@ class Game3 extends MasterGame {
         // this.create();
       }
     }
-
-
-    /*
-
-        if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
-
-          alert('Try again! ...From scratch!');
-          this.newGame();
-          this.decreaseLive();
-        } else {
-          console.log('Good Move!');
-          var check = this.player.length === this.currentGame.length;
-          if (check) {
-            if (this.gameCount == 10) {
-              alert('You won! Congrats.');
-            } else {
-              alert('Next round!');
-              this.nextLevel();
-            }
-          }
-        }
-    */
-
-
   }
-
 }
