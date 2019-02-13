@@ -37,7 +37,12 @@ class MasterGame {
   }
 
   loadRandomGame() {
-    var gameArray = this.__proto__.__proto__.allGames;
+    var gameArray = [];
+    if (this.__proto__.allGames.length > 0){
+      gameArray = this.__proto__.allGames;
+    }else if(this.__proto__.__proto__.allGames.length > 0){
+      gameArray = this.__proto__.__proto__.allGames;
+    }
     gameArray[0].remove();
     gameArray[1].remove();
     //gameArray[2].remove();
@@ -95,29 +100,12 @@ function createPatterns() {
     $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
   }
 }
-$("#start-the-game").click(function() {
-  createPatterns();
-  $("#menu").css("display","none");
-  $("#countdown").css("display","flex");
-  $(".live-bar").css("display","flex");
-  $("footer").css("display","flex");
-  var timeleft = 3;
-  $("#get-ready").text(timeleft + "...");
-  var downloadTimer = setInterval(function(){
-  createPatterns();
-  timeleft--;
-  $("#get-ready").text(timeleft + "...");
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    $("#countdown").css("display","none");
-    $(".patterns").children().remove();
-  }
-  },1000);
-})
+
 
 
 // document ready
 $(document).ready(function () {
+  createPatterns();
   let brain = new MasterGame();
   let myGame = new Game1();
   let myGame2 = new Game2();
@@ -128,6 +116,30 @@ $(document).ready(function () {
   $("#start-game").click(function () {
     brain.init();
   })
+
+  // Start
+  $("#start-the-game").click(function() {
+    createPatterns();
+    $("#menu").css("display","none");
+    $("#countdown").css("display","flex");
+    $(".live-bar").css("display","flex");
+    $("footer").css("display","flex");
+    var timeleft = 3;
+    $("#get-ready").text(timeleft + "...");
+    var downloadTimer = setInterval(function(){
+    createPatterns();
+    timeleft--;
+    $("#get-ready").text(timeleft + "...");
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      $("#countdown").css("display","none");
+      $(".patterns").children().remove();
+      brain.init();
+    }
+    },1000);
+  })
+
+
   // Game ONE
   $("#start-game-1").click(function (event) {
     myGame.create();
