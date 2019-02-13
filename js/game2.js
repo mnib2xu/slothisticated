@@ -2,8 +2,8 @@
 // Reaction Game
 class Game2 extends MasterGame{
 
-  constructor(score, slothicles) {
-    super(score, slothicles);
+  constructor() {
+    super();
     this.timeLimit;
     this.startTime;
     this.elapsedTime;

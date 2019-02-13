@@ -2,8 +2,8 @@
 // Repeat the Pattern
 class Game3 extends MasterGame {
 
-  constructor(score, slothicles) {
-    super(score, slothicles);
+  constructor() {
+    super();
     this.amountOfRepeats;
     this.gamePassed = false;
   }

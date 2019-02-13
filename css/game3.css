@@ -1,17 +1,19 @@
-/* REPEAT THE PATTERN STYLE CSS */
+/*** Repeat the pattern style CSS ***/
 .box1 {
   background-color: rgb(212, 156, 168);
 }
+
 .box2 {
   background-color: rgb(86, 52, 170);
 }
+
 .box3 {
   background-color: rgb(103, 154, 168);
 }
+
 .box4 {
   background-color: rgb(217, 225, 190);
 }
-
 
 .gamebutton {
   width: 120px;
@@ -22,20 +24,16 @@
 
 #blue.hover {
   background-color: rgb(86, 52, 170);
-  /* background-color: black; */
 }
 
 #green.hover {
   background-color: rgb(212, 156, 168);
-  /* background-color: black; */
 }
 
 #red.hover {
   background-color: rgb(217, 225, 190);
-  /* background-color: black; */
 }
 
 #dark.hover {
-  background-color:rgb(103, 154, 168);
-  /* background-color: black; */
+  background-color: rgb(103, 154, 168);
 }
