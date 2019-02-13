@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!--
     <button id="start-game">Ini.Game</button>
     <button id="start-game-1">Ini.Game.1</button>
     <button id="stop-game-1">Rm.Game.1</button>
@@ -19,7 +20,7 @@
     <button id="stop-game-2">Rm.Game.2</button>
     <button id="start-game-3">Ini.Game.3</button>
     <button id="stop-game-3">Rm.Game.3</button>
-
+    -->
     <header>
         <!-- QUESTION AREA -->
         <div class="question-area">
@@ -29,35 +30,42 @@
         </div>
 
     </header>
-    <main>
-        <section>
-            <!-- MENU -->
-            <div id="menu" style="display:flex;">
-                <div class="main-menu">
-                    <h1 class="main-title">Slothisticated</h1>
-                    <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
-                    <button id="start-the-game">Let's Sloth</button>
-                    <br />
-                    <!-- <img id="hail-sloth" src="img/sloth-up.png"> 
-                -->
-                </div>
+    <section>
+        <!-- MENU -->
+        <div id="menu" style="display:flex;"> 
+            <div class="main-menu">
+                <h1 class="main-title">Slothisticated</h1>
+                <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
+                <button class="start-the-game">Let's Sloth</button>
+                <br />
             </div>
-            <!-- CountDown -->
-            <div id="countdown" style="display:none;">
-                <div class="main-menu">
-                    <h1 class="main-title">Get ready!</h1>
-                    <span id="get-ready"></span>
-                </div>
+        </div>
+        <!-- CountDown -->
+        <div id="countdown" style="display:none;">
+            <div class="main-menu">
+                <div></div>
+                <h1>Get ready!</h1>
+                <span id="get-ready"></span>
             </div>
-        </section>
-        <section>
-            <!-- COLOR CIRCLE ID | GAME ONE -->
-            <div id="game1" class="grid2x2" style="display:none;">
-                <div id="object1" class="object">
-                    <div>
-                        <span class="innerText"></span>
-                        <div class="innercircle" id="innercircle1">
-                        </div>
+        </div>
+        <!-- END -->
+        <div id="end-screen" style="display:none;"> 
+            <div class="main-menu">
+                <h1>Your Score: 12</h1>
+                <h1>very slothisticated score!</h1>
+                <img src="img/react.jpg" height="300px"/>
+                <br />
+                <button class="start-the-game">Let's reSloth</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <!-- COLOR CIRCLE ID | GAME ONE -->
+        <div id="game1" class="grid2x2" style="display:none;">
+            <div id="object1" class="object">
+                <div>
+                    <span class="innerText"></span>
+                    <div class="innercircle" id="innercircle1">
                     </div>
                 </div>
 

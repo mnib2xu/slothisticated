@@ -9,38 +9,57 @@ class MasterGame {
   }
 
   decreaseLive() {
-    this.slothicles -= 1;
-    $(".live-bar ul li:last-child").remove();
+    if (this.slothicles === 0){
+      $("#end-screen").css("display","flex");
+      $("#random-question").text("The end!");
+    }else{
+      this.slothicles -= 1;
+      $(".live-bar ul li:last-child").remove();
+      $("#countdown").css("display","flex");
+      $("#random-question").text("You Failed!");
+      $("#countdown").children().children(":first-child").append('<img id="game-feedback-img" src="img/come-on-man.jpg" />');
+      debugger
+      var timeleft = 3;
+      $("#get-ready").text(timeleft + "...");
+      var downloadTimer = setInterval(function(){
+      timeleft--;
+      $("#get-ready").text(timeleft + "...");
+      if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        $("#countdown").css("display","none");
+        $("#game-feedback-img").remove();
+        this.loadRandomGame();
+      }
+      }.bind(this),1000);
+    }
+  }
+
+  increaseScore() {
+    this.__proto__.__proto__.score++;
+    if (this.__proto__.__proto__.score > 12) {
+      this.__proto__.level = 4;
+    } else if (this.__proto__.__proto__.score > 8) {
+      this.__proto__.level = 3;
+    } else if (this.__proto__.__proto__.score > 4) {
+      this.__proto__.level = 2;
+    }
+    $("#score").text(this.__proto__.__proto__.score);
+    $("#level").text(this.__proto__.level);
     $("#countdown").css("display","flex");
-    $("#random-question").css("display","flex");
+    $("#random-question").text("You passed!");
+    $("#countdown").children().children(":first-child").append('<img id="game-feedback-img" src="img/react.jpg" />');
     var timeleft = 3;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function(){
-    createPatterns();
     timeleft--;
     $("#get-ready").text(timeleft + "...");
     if(timeleft <= 0){
       clearInterval(downloadTimer);
       $("#countdown").css("display","none");
-      $(".patterns").children().remove();
+      $("#game-feedback-img").remove();
       this.loadRandomGame();
     }
     }.bind(this),1000);
-  }
-
-  increaseScore() {
-    this.__proto__.__proto__.score++;
-    if (this.__proto__.__proto__.score > 6) {
-      this.__proto__.level = 4;
-    } else if (this.__proto__.__proto__.score > 4) {
-      this.__proto__.level = 3;
-    } else if (this.__proto__.__proto__.score > 2) {
-      this.__proto__.level = 2;
-    }
-
-    $("#score").text(this.__proto__.__proto__.score);
-    $("#level").text(this.__proto__.level);
-    this.loadRandomGame();
   }
 
   init() {
@@ -134,8 +153,9 @@ $(document).ready(function () {
   })
 
   // Start
-  $("#start-the-game").click(function() {
+  $(".start-the-game").click(function() {
     createPatterns();
+    $("#end-screen").css("display","none");
     $("#menu").css("display","none");
     $("#countdown").css("display","flex");
     $(".live-bar").css("display","flex");
