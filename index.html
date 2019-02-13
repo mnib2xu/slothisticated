@@ -9,6 +9,7 @@
     <link href="./css/style-ReactionGame.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="./css/style-RepeatThePattern.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="./css/style-ColorCircleGame.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="./css/game4.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>
@@ -52,16 +53,14 @@
             </div>
         </div>
     </section>
-
+    <div id="myProgress" style="display:none;">
+            <div id="myBar"></div>
+        </div>
     <main>
-
         <section>
             <!-- COLOR CIRCLE ID | GAME ONE -->
 
             <div id="game1" class="grid2x2" style="display:none;">
-                <div id="myProgress" style="display:flex;">
-                    <div id="myBar"></div>
-                </div>
                 <div id="object1" class="object">
                     <div>
                         <span class="innerText"></span>
@@ -130,6 +129,14 @@
                 </div>
             </div>
         </section>
+        <section>
+            <!-- RED BUTTON | GAME FOUR -->
+            <div id="game4" style="display:none;">
+                <div class="red-btn">
+                    <img src="img/button-sloth.svg" />
+                </div>
+            </div>
+        </section>
     </main>
     <!-- LIVES BAR -->
     <div class="live-bar" style="display:none;">
@@ -162,7 +169,7 @@
     <script src="./js/game1.js"></script>
     <script src="./js/game2.js"></script>
     <script src="./js/game3.js"></script>
-
+    <script src="./js/game4.js"></script>
 </body>
 
 </html>

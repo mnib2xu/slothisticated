@@ -83,6 +83,7 @@ class MasterGame {
     gameArray[0].remove();
     gameArray[1].remove();
     gameArray[2].remove();
+    gameArray[3].remove();
     var randomGame = this.getRandomItem(gameArray);
     randomGame.create();
   }
@@ -122,10 +123,11 @@ $(document).ready(function () {
   let myGame = new Game1();
   let myGame2 = new Game2();
   let repeatThePattern = new Game3();
+  let myGame4 = new Game4();
   brain.__proto__.allGames.push(myGame);
   brain.__proto__.allGames.push(myGame2);
   brain.__proto__.allGames.push(repeatThePattern);
-
+  brain.__proto__.allGames.push(myGame4);
 
   // Start
   $(".start-the-game").click(function () {

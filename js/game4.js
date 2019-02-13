@@ -2,35 +2,62 @@
 // Do not press the red Button!
 class Game4 extends MasterGame {
 
-  constructor(score, slothicles) {
-    super(score, slothicles);
-
+  constructor() {
+    super();
+    this.pressButton;
+    this.countdown;
+    this.countdownTime;
   }
 
   create() {
     switch (this.level) {
       case 1:
-        this.amountOfRepeats = 2;
+        this.countdownTime = 40;
         break;
       case 2:
-        this.amountOfRepeats = 3;
+        this.countdownTime = 30;
         break;
       case 3:
-        this.amountOfRepeats = 4;
+        this.countdownTime = 20;
         break;
       case 4:
-        this.amountOfRepeats = 5;
+        this.countdownTime = 10;
         break;
       default:
-        this.amountOfRepeats = 2;
+        this.countdownTime = 2;
         break;
     }
     $("#game4").css("display", "flex");
+    this.pressButton = Math.round((Math.random() * 1) + 0) === 0;
+    if(this.pressButton){
+      $("#random-question").text("Do press the red sloth Button!")
+    }else{
+      $("#random-question").text("Do not press the red sloth Button!")
+    }
+    this.startCountdown();
+    this.listenToButton();
+  }
+
+  listenToButton() {
+    $(".red-btn").click(function (event) {
+      this.checkSolution();
+    }.bind(this));
+  }
+
+  checkSolution() {
+    if (this.pressButton){
+      this.increaseScore();
+    }else{
+      this.decreaseLive("game4");
+    }
+    this.remove();
   }
 
   remove() {
     $("#game4").css("display", "none");
-    $("#random-question").text("");
+    $(".red-btn").off("click");
+    this.stopCountdown();
+    this.pressButton = undefined;
   }
 
   startCountdown() {
@@ -39,20 +66,21 @@ class Game4 extends MasterGame {
     var width = 100;
     this.countdown = setInterval(function(){
       if (width === 0) {
+        if (!this.pressButton){
+          this.increaseScore();
+        }else{
+          this.decreaseLive("game4");
+        }
         this.remove();
-        this.decreaseLive("game1");
-        $("#myProgress").css("display","none")
-        clearInterval(this.countdown);
       } else {
         width--; 
         elem.style.width = width + '%'; 
       }
-    }.bind(this), 30);
+    }.bind(this), this.countdownTime);
   }
 
   stopCountdown() {
     $("#myProgress").css("display","none")
     clearInterval(this.countdown);
   }
-
 }
