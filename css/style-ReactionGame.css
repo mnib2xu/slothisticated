@@ -21,3 +21,7 @@
 .failed {
   background: pink;
 }
+#reaction-result{
+  padding-top: 40px;
+  font-size: 30px;
+}

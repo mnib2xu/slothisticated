@@ -63,8 +63,9 @@ p {
 
 
 /* SCORE BAR */
-main {
-  height: 50%;
+main section div {
+  height: 60vh;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,19 +102,19 @@ footer {
 
 /*** Main Menu ***/
 #menu {
-  height: 80vh;
+  height: 60vh;
   display: flex;
   align-items: center;
 }
 
 #countdown {
-  height: 80vh;
+  height: 60vh;
   display: flex;
   align-items: center;
 }
 
 #end-screen {
-  height: 80vh;
+  height: 60vh;
   display: flex;
   align-items: center;
 }
@@ -130,6 +131,7 @@ footer {
   font-size: 6vw;
   text-transform: uppercase;
   margin-bottom: 0;
+  margin-top: 15vw;
 }
 
 .sub-title {
