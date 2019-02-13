@@ -98,15 +98,21 @@ footer {
   padding: 20px 0;
 }
 
-/* TEST BAR */
-.test-bar {
-  position: absolute;
-  bottom: 20px;
-}
-
 
 /*** Main Menu ***/
 #menu {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+#countdown {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+#end-screen {
   height: 80vh;
   display: flex;
   align-items: center;
@@ -163,6 +169,8 @@ footer {
     font-size: 5vw;
   }
 }
+
+/* Creating the Patterns */
 .patterns {
   display: flex;
   flex-wrap: wrap;
@@ -202,6 +210,7 @@ footer {
   box-sizing: border-box;
 }
 
+/* Get Ready Button */
 #get-ready {
   font-size: 40px;
 }

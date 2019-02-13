@@ -154,6 +154,7 @@ $(document).ready(function () {
 
   // Start
   $(".start-the-game").click(function() {
+    debugger
     createPatterns();
     $("#end-screen").css("display","none");
     $("#menu").css("display","none");
