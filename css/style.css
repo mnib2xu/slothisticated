@@ -113,11 +113,6 @@ footer {
   align-items: center;
 }
 
-#end-screen {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-}
 
 .main-menu {
   width: 100%;
@@ -146,7 +141,7 @@ footer {
   color: #FBF6D2;
   background-color: #5634AA;
   border-radius: 20px;
-  margin-top: 40px;
+  margin: 25px;
   cursor: pointer;
 }
 
@@ -170,6 +165,13 @@ footer {
   .start-the-game {
     font-size: 5vw;
   }
+}
+
+/* ENDSCREEN */
+#end-screen {
+  height: 60vh;
+  display: flex;
+  align-items: center;
 }
 
 /* Creating the Patterns */

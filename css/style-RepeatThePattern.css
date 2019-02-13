@@ -14,27 +14,28 @@
 
 
 .gamebutton {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
+  margin: 20px;
   border-radius: 400px;
 }
 
 #blue.hover {
-  /* background-color: rgb(86, 52, 170); */
-  background-color: black;
+  background-color: rgb(86, 52, 170);
+  /* background-color: black; */
 }
 
 #green.hover {
-  /* background-color: rgb(212, 156, 168); */
-  background-color: black;
+  background-color: rgb(212, 156, 168);
+  /* background-color: black; */
 }
 
 #red.hover {
-  /* background-color: rgb(217, 225, 190); */
-  background-color: black;
+  background-color: rgb(217, 225, 190);
+  /* background-color: black; */
 }
 
 #dark.hover {
-  /* background-color:rgb(103, 154, 168); */
-  background-color: black;
+  background-color:rgb(103, 154, 168);
+  /* background-color: black; */
 }
