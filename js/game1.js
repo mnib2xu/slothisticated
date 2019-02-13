@@ -51,17 +51,15 @@ class Game1 extends MasterGame{
     var width = 100;
     this.countdown = setInterval(function(){
       if (width === 0) {
-        /*
         this.remove();
         this.decreaseLive("game1");
         $("#myProgress").css("display","none")
         clearInterval(this.countdown);
-        */
       } else {
         width--; 
         elem.style.width = width + '%'; 
       }
-    }.bind(this), 50);
+    }.bind(this), 30);
   }
 
   stopCountdown() {
@@ -124,6 +122,7 @@ class Game1 extends MasterGame{
       this.stopCountdown();
       this.increaseScore("game1");
     }else{
+      this.stopCountdown();
       this.decreaseLive("game1");
     }
   }
@@ -137,7 +136,6 @@ class Game1 extends MasterGame{
       let temp = newArray[counter];
       newArray[counter] = newArray[index];
       newArray[index] = temp;
-      console.log(this.__proto__.level)
     }
     return newArray;
   }

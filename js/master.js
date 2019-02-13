@@ -11,6 +11,7 @@ class MasterGame {
   decreaseLive(previousGame) {
     $(".live-bar ul li:last-child").remove();
     if (this.__proto__.__proto__.slothicles === 1) {
+      $("#final-score").text(this.__proto__.__proto__.score);
       $("#end-screen").css("display", "flex");
       $("#random-question").text("The end!");
     } else {
@@ -26,11 +27,11 @@ class MasterGame {
 
   increaseScore(previousGame) {
     this.__proto__.__proto__.score++;
-    if (this.__proto__.__proto__.score > 12) {
+    if (this.__proto__.__proto__.score >= 15) {
       this.__proto__.level = 4;
-    } else if (this.__proto__.__proto__.score > 8) {
+    } else if (this.__proto__.__proto__.score >= 10) {
       this.__proto__.level = 3;
-    } else if (this.__proto__.__proto__.score > 4) {
+    } else if (this.__proto__.__proto__.score >= 5) {
       this.__proto__.level = 2;
     }
     if (previousGame === "game2") {
@@ -46,7 +47,7 @@ class MasterGame {
 
   getGetGreadyCountDown() {
     $("#countdown").css("display", "flex");
-    var timeleft = 3;
+    var timeleft = 1;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function () {
       timeleft--;
@@ -63,9 +64,11 @@ class MasterGame {
 
   init() {
     this.__proto__.level = 1;
+    this.__proto__.score = 0;
+    this.__proto__.slothicles = 4;
     $("#slothicles").text(this.slothicles)
-    $("#score").text(this.score)
-    this.timer();
+    $("#score").text(this.__proto__.score)
+    //this.timer();
     this.updateStats();
     this.loadRandomGame();
   }
@@ -80,7 +83,7 @@ class MasterGame {
     gameArray[0].remove();
     gameArray[1].remove();
     gameArray[2].remove();
-    var randomGame = gameArray[0];
+    var randomGame = this.getRandomItem(gameArray);
     randomGame.create();
   }
 
@@ -126,15 +129,17 @@ $(document).ready(function () {
 
   // Start
   $(".start-the-game").click(function () {
+    $("#random-question").text("");
     createPatterns();
 
     $("#menu").css("display", "none");
     $("#countdown").css("display", "flex");
+    $("#end-screen").css("display", "none");
 
     $(".live-bar").css("display", "flex");
     $("footer").css("display", "flex");
 
-    var timeleft = 3;
+    var timeleft = 1;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function () {
       createPatterns();

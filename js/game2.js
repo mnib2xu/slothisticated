@@ -15,16 +15,16 @@ class Game2 extends MasterGame{
     $("#game2").css("display","flex");
     switch (this.level) {
       case 1:
-        this.timeLimit = 500;
+        this.timeLimit = 600;
         break;
       case 2:
-        this.timeLimit = 450;
+        this.timeLimit = 500;
         break;
       case 3:
-        this.timeLimit = 400;
+        this.timeLimit = 450;
         break;
       case 4:
-        this.timeLimit = 350;
+        this.timeLimit = 400;
         break;
       default:
         this.timeLimit = 500;
@@ -38,7 +38,6 @@ class Game2 extends MasterGame{
     var randomTime = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;  
     var timer = setInterval(function () {
       sec++;
-      console.log(sec);
       if (sec > randomTime) {
         this.startTime = Date.now();
         clearInterval(timer);
@@ -46,7 +45,6 @@ class Game2 extends MasterGame{
       }
       if (this.tooSoon) {
         clearInterval(timer);
-        this.change();
       }
     }.bind(this), 1);
   }
@@ -60,26 +58,17 @@ class Game2 extends MasterGame{
     if(!this.tooSoon){
       this.elapsedTime = Date.now() - this.startTime;
       $("#reaction-ms").text(this.elapsedTime);
+      $("#reaction-go").toggleClass("hidden");
+    }else{
+
     }
     $("#time-limit").text(this.timeLimit);
-    $("#master-level").text(this.level);
-    $("#reaction-go").toggleClass("hidden");
-    $("#reaction-result").toggleClass("hidden");
-
     if(this.tooSoon){
       $("#reaction-ms").text("-");
-      $("#reaction-result").addClass("failed");
-      $("#sloth-result").attr("src","img/come-on-man.jpg");
-      $("#random-question").text("You were to fast!")
       this.gamePassed = false;
     }else if(this.elapsedTime < this.timeLimit){
-      $("#reaction-result").addClass("passed");
-      $("#sloth-result").attr("src","img/react.jpg");
       this.gamePassed = true;
     }else if(this.elapsedTime > this.timeLimit){
-      $("#reaction-result").addClass("failed");
-      $("#sloth-result").attr("src","img/come-on-man.jpg");
-      $("#random-question").text("You were to slowth!")
       this.gamePassed = false;
     }
     this.updateMaster();
@@ -102,9 +91,8 @@ class Game2 extends MasterGame{
   remove() {
     this.tooSoon = false;
     $("#game2").css("display","none");
-    $("#reaction-result").addClass("hidden");
-    $("#reaction-result").removeClass("passed failed");
-    $("#reaction-wait").removeClass("hidden");
+      $("#reaction-wait").removeClass("hidden");
+    $("#reaction-go").addClass("hidden");
     $("#random-question").text("");
   }
 }

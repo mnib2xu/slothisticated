@@ -37,7 +37,6 @@ class Game3 extends MasterGame {
 
   letButtonsListen() {
     $(".gamebutton").click(function (event) {
-      console.log(event.currentTarget.id)
       this.addToPlayer(event.currentTarget.id);
 
     }.bind(this));
@@ -79,16 +78,12 @@ class Game3 extends MasterGame {
   }
 
   addToPlayer(id) {
-
     var field = "#" + id;
-    console.log(field);
     this.player.push(field);
     this.playerTurn(field);
   }
 
   playerTurn() {
-
-
     // EACH TIME A PLAYER CLICKS A BUTTON IT CHECKS IT CORRECTNESS
     if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
 
