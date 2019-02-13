@@ -170,14 +170,8 @@ footer {
 /* ENDSCREEN */
 #end-screen {
   height: 60vh;
-  /* display: flex;
-  align-items: flex-start; */
-}
-
-#end-screen img {
-  height: 100%;
-  max-width: 250px;
-  /* display: inline-block; */
+  display: flex;
+  align-items: center;
 }
 
 /* Creating the Patterns */
