@@ -21,8 +21,8 @@
         </div>
     </header>
     <section>
-        <!-- MENU -->
-        <div id="menu" style="display:flex;"> 
+        <!-- MAIN MENU -->
+        <div id="menu" style="display:flex;">
             <div class="main-menu">
                 <h1 class="main-title">Slothisticated</h1>
                 <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
@@ -37,31 +37,32 @@
                     <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div><br />
                     <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
                 </div>
-                <h1 class="main-title">Get ready!</h1>
+                <h1 class="sub-title">Get ready!</h1>
                 <span id="get-ready"></span>
             </div>
         </div>
         <!-- END -->
-        <div id="end-screen" style="display:none;"> 
+        <div id="end-screen" style="display:none;">
             <div class="main-menu">
-                <h1>Your Score: 12</h1>
-                <h1>very slothisticated score!</h1>
-                <img src="img/react.jpg" height="300px"/>
+                <h1 class="main-title">Your Score: 12</h1>
+                <h2 class="sub-title">very slothisticated score!</h2>
+                <img src="img/react.jpg" height="300px" />
                 <br />
                 <button class="start-the-game">Let's reSloth</button>
             </div>
         </div>
     </section>
-    <section>
-        <!-- COLOR CIRCLE ID | GAME ONE -->
-        <div id="game1" class="grid2x2" style="display:none;">
-            <div id="object1" class="object">
-                <div>
-                    <span class="innerText"></span>
-                    <div class="innercircle" id="innercircle1">
+    <main>
+        <section>
+            <!-- COLOR CIRCLE ID | GAME ONE -->
+            <div id="game1" class="grid2x2" style="display:none;">
+                <div id="object1" class="object">
+                    <div>
+                        <span class="innerText"></span>
+                        <div class="innercircle" id="innercircle1">
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div id="object2" class="object">
                     <div>
                         <span class="innerText"></span>
@@ -140,10 +141,10 @@
             <p>Score:</p>
             <span id="score">0000</span>
         </div>
-        <div class="score-bar">
+        <!-- <div class="score-bar">
             <p>Time:</p>
             <span id="time">0000</span>
-        </div>
+        </div> -->
         <div class="score-bar">
             <p>Level:</p>
             <span id="level">0000</span>
