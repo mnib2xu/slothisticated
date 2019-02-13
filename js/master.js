@@ -3,17 +3,17 @@
 class MasterGame {
 
   constructor() {
-    this.slothicles = 4;
+    this.__proto__.slothicles = 4;
     this.__proto__.allGames = [];
     this.__proto__.score = 0;
   }
 
   decreaseLive() {
-    if (this.slothicles === 0){
+    if (this.__proto__.__proto__.slothicles === 1){
       $("#end-screen").css("display","flex");
       $("#random-question").text("The end!");
     }else{
-      this.slothicles -= 1;
+      this.__proto__.__proto__.slothicles -= 1;
       $(".live-bar ul li:last-child").remove();
       $("#countdown").css("display","flex");
       $("#random-question").text("You Failed!");
