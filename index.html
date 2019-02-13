@@ -28,13 +28,21 @@
     </header>
     <section>
         <!-- MENU -->
-        <div id="menu" style="display:flex;">
+        <div id="menu" style="display:flex;"> 
             <div class="main-menu">
-                <h1 id="main-title">Slothisticated</h1>
-                <h2 id="sub-title">Are you slothisticated enough for this game?</h2>
+                <h1 class="main-title">Slothisticated</h1>
+                <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
                 <button id="start-the-game">Let's Sloth</button>
                 <br />
-                <img id="hail-sloth" src="img/sloth-up.png">
+               <!-- <img id="hail-sloth" src="img/sloth-up.png"> 
+                -->
+            </div>
+        </div>
+        <!-- CountDown -->
+        <div id="countdown" style="display:none;">
+            <div class="main-menu">
+                <h1 class="main-title">Get ready!</h1>
+                <span id="get-ready"></span>
             </div>
         </div>
     </section>
@@ -94,7 +102,7 @@
     </section>
 
     <!-- LIVES BAR -->
-    <div class="live-bar" style="display: none;">
+    <div class="live-bar" style="display:none;">
         <p>Slothicles:</p>
         <ul>
             <li class="live live-one"><img src="img/sloth.svg"></li>
@@ -104,7 +112,7 @@
         </ul>
     </div>
     <!-- Footer (Score) -->
-    <footer style="display: none;">
+    <footer style="display:none;">
         <div class="score-bar">
             <p>Score:</p>
             <span id="score">0000</span>

@@ -13,6 +13,7 @@ class MasterGame {
     $("#score").text(this.score)
     this.timer();
     this.updateStats();
+    this.loadRandomGame();
   }
 
   loadRandomGame(gameArray) {
@@ -80,7 +81,7 @@ window.onresize = function(event) {
 function createPatterns() {
   $(".patterns").children().remove();
   var windowWidth = $(window).width();
-  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
+  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
   var patternArray = ['<div class="pattern-circle"></div>','<div class="pattern-triangle-upside-down"></div>',''];
   var patternArray2 = ['<div class="pattern-circle"></div>','<div class="pattern-triangle"></div>',''];
   var amountOfPatternBoxes = Math.floor(windowWidth / 80);
@@ -96,8 +97,27 @@ function createPatterns() {
     $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
     $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
   }
-  console.log(amountOfPatternBoxes);
 }
+$("#start-the-game").click(function() {
+  createPatterns();
+  $("#menu").css("display","none");
+  $("#countdown").css("display","flex");
+  $(".live-bar").css("display","flex");
+  $("footer").css("display","flex");
+  var timeleft = 3;
+  $("#get-ready").text(timeleft + "...");
+  var downloadTimer = setInterval(function(){
+  createPatterns();
+  timeleft--;
+  $("#get-ready").text(timeleft + "...");
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    $("#countdown").css("display","none");
+    $(".patterns").children().remove();
+  }
+  },1000);
+})
+
 
 // document ready
 $(document).ready(function () {
@@ -155,8 +175,4 @@ $(document).ready(function () {
     myGame2.remove();
     brain.loadRandomGame(allGames);
   })
-
-
-
-
 })

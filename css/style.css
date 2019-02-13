@@ -180,9 +180,8 @@ footer {
   width: 100%;
   color: #5634AA;
   text-align: center;
-  
 }
-#main-title{
+.main-title{
   font-weight: 100;
   font-size: 50px;
   text-transform: uppercase;
@@ -195,6 +194,7 @@ footer {
   border-radius: 20px;
   font-size: 20px;
   margin-top: 40px;
+  cursor: pointer;
 }
 #hail-sloth{
   position: fixed;
@@ -235,4 +235,7 @@ footer {
   max-width: 80px;
   background-color: white;
   box-sizing: border-box;
+}
+#get-ready{
+  font-size: 60px;
 }
