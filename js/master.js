@@ -5,7 +5,7 @@ class MasterGame {
   constructor() {
     this.slothicles = 4;
     this.__proto__.allGames = [];
-    this.__proto__.score = 0; 
+    this.__proto__.score = 0;
   }
 
   decreaseLive() {
@@ -17,9 +17,9 @@ class MasterGame {
     this.__proto__.__proto__.score++;
     if (this.__proto__.__proto__.score > 6) {
       this.__proto__.level = 4;
-    }else if (this.__proto__.__proto__.score > 4) {
+    } else if (this.__proto__.__proto__.score > 4) {
       this.__proto__.level = 3;
-    }else if (this.__proto__.__proto__.score > 2) {
+    } else if (this.__proto__.__proto__.score > 2) {
       this.__proto__.level = 2;
     }
 

@@ -27,7 +27,6 @@ class Game3 extends MasterGame {
         break;
     }
     $("#game3").css("display", "flex");
-    this.letButtonsListen();
     this.clearGame();
   }
 
@@ -40,6 +39,7 @@ class Game3 extends MasterGame {
     $(".gamebutton").click(function (event) {
       console.log(event.currentTarget.id)
       this.addToPlayer(event.currentTarget.id);
+
     }.bind(this));
   }
 
@@ -48,7 +48,7 @@ class Game3 extends MasterGame {
     this.currentGame = [];
     this.possibilities = ['#green', '#blue', '#red', '#dark']
 
-    for (var i = 0; i < this.amountOfRepeats; i++){
+    for (var i = 0; i < this.amountOfRepeats; i++) {
       this.currentGame.push(this.possibilities[(Math.floor(Math.random() * 4))]);
     }
     this.showMoves();
@@ -62,7 +62,7 @@ class Game3 extends MasterGame {
       if (i >= this.currentGame.length) {
         clearInterval(moves);
       }
-    }.bind(this), 500)
+    }.bind(this), 600)
     this.clearPlayer();
   }
 
@@ -70,14 +70,16 @@ class Game3 extends MasterGame {
     $(field).addClass('hover');
     setTimeout(function () {
       $(field).removeClass('hover');
-    }, 500);
+    }, 200);
   }
 
   clearPlayer() {
     this.player = [];
+    this.letButtonsListen();
   }
 
   addToPlayer(id) {
+
     var field = "#" + id;
     console.log(field);
     this.player.push(field);
@@ -85,44 +87,49 @@ class Game3 extends MasterGame {
   }
 
   playerTurn() {
+
+
+    // EACH TIME A PLAYER CLICKS A BUTTON IT CHECKS IT CORRECTNESS
     if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
-      //alert('Try again! ...From scratch!');
+
+      //ENTERS THIS PART IF INCORRECT
+      $(".gamebutton").off("click")
       this.decreaseLive();
-      this.create();
-      console.log(`you lost a liveeeee`)
     } else {
-      //console.log('Good Move!');
-      var check = this.player.length === this.currentGame.length;
-      if (check) {
+
+      // ENTERS THIS PART IF CLICK IS CORRECT
+
+      if (this.player.length === this.currentGame.length) {
+        $(".gamebutton").off("click")
         this.increaseScore();
-        console.log(`good jobbb`)
-        this.create();
+        
+        // this.create();
       }
     }
-    
 
-/*
 
-    if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
+    /*
 
-      alert('Try again! ...From scratch!');
-      this.newGame();
-      this.decreaseLive();
-    } else {
-      console.log('Good Move!');
-      var check = this.player.length === this.currentGame.length;
-      if (check) {
-        if (this.gameCount == 10) {
-          alert('You won! Congrats.');
+        if (this.player[this.player.length - 1] !== this.currentGame[this.player.length - 1]) {
+
+          alert('Try again! ...From scratch!');
+          this.newGame();
+          this.decreaseLive();
         } else {
-          alert('Next round!');
-          this.nextLevel();
+          console.log('Good Move!');
+          var check = this.player.length === this.currentGame.length;
+          if (check) {
+            if (this.gameCount == 10) {
+              alert('You won! Congrats.');
+            } else {
+              alert('Next round!');
+              this.nextLevel();
+            }
+          }
         }
-      }
-    }
-*/
+    */
 
 
   }
-  
+
 }
