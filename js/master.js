@@ -13,7 +13,8 @@ class MasterGame {
     if (this.__proto__.__proto__.slothicles === 1){
       $("#end-screen").css("display","flex");
       $("#random-question").text("The end!");
-    }else{
+    }
+    else {
       this.__proto__.__proto__.slothicles -= 1;
       $("#countdown").css("display","flex");
       $("#random-question").text("You Failed!");
@@ -119,37 +120,12 @@ class MasterGame {
     }.bind(this), 1000);
   }
 }
-/*
-window.onresize = function(event) {
-  createPatterns();
-};
-*/
-function createPatterns() {
-  $(".patterns").children().remove();
-  var windowWidth = $(window).width();
-  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
-  var patternArray = ['<div class="pattern-circle"></div>','<div class="pattern-triangle-upside-down"></div>',''];
-  var patternArray2 = ['<div class="pattern-circle"></div>','<div class="pattern-triangle"></div>',''];
-  var amountOfPatternBoxes = Math.floor(windowWidth / 80);
-  for (var i = 0; i < amountOfPatternBoxes; i++){
-    $(".patterns").append('<div class="pattern-box"></div>');
-    $(".patterns").children(":last-child").append(patternArray[Math.floor(Math.random() * patternArray.length)])
-    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
-    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
-  }
-  for (var i = 0; i < amountOfPatternBoxes; i++){
-    $(".patterns").append('<div class="pattern-box"></div>');
-    $(".patterns").children(":last-child").append(patternArray2[Math.floor(Math.random() * patternArray2.length)])
-    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
-    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
-  }
-}
-
-
 
 // document ready
 $(document).ready(function () {
   createPatterns();
+
+  // Initializing
   let brain = new MasterGame();
   let myGame = new Game1();
   let myGame2 = new Game2();
@@ -157,18 +133,18 @@ $(document).ready(function () {
   brain.__proto__.allGames.push(myGame);
   brain.__proto__.allGames.push(myGame2);
   brain.__proto__.allGames.push(repeatThePattern);
-  $("#start-game").click(function () {
-    brain.init();
-  })
+
 
   // Start
   $(".start-the-game").click(function() {
     createPatterns();
-    $("#end-screen").css("display","none");
+
     $("#menu").css("display","none");
     $("#countdown").css("display","flex");
+
     $(".live-bar").css("display","flex");
     $("footer").css("display","flex");
+
     var timeleft = 3;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function(){
@@ -178,43 +154,41 @@ $(document).ready(function () {
     if(timeleft <= 0){
       clearInterval(downloadTimer);
       $("#countdown").css("display","none");
-      $(".patterns").children().remove();
+      removePatterns();
       brain.init();
     }
     },1000);
   })
 
   // Game ONE
-  $("#start-game-1").click(function (event) {
-    myGame.create();
-  })
-  $("#stop-game-1").click(function (event) {
-    myGame.remove();
-  })
   $(".object").click(function (event) {
     myGame.updateMaster(event.currentTarget);
   })
 
   // GAME TWO
-  $("#start-game-2").click(function () {
-    myGame2.create();
-  })
-  $("#stop-game-2").click(function () {
-    myGame2.remove();
-  })
   $("#reaction-wait").click(function () {
     myGame2.clickedToSoon();
   })
   $("#reaction-go").click(function () {
     myGame2.reaction();
   })
-
-  // GAME THREE
-  $("#start-game-3").click(function () {
-    repeatThePattern.create();
-  })
-  $("#stop-game-3").click(function () {
-    repeatThePattern.remove();
-  })
-
 })
+
+function createPatterns() {
+  $(".patterns").children().remove();
+  var windowWidth = $(window).width();
+  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
+  var patternArray = [['<div class="pattern-circle"></div>','<div class="pattern-triangle-upside-down"></div>',''],['<div class="pattern-circle"></div>','<div class="pattern-triangle"></div>','']];
+  var amountOfPatternBoxes = Math.floor(windowWidth / 80);
+  for (var i = 0; i < 2; i++){
+    for (var j = 0; j < amountOfPatternBoxes; j++){
+      $(".patterns").append('<div class="pattern-box"></div>');
+      $(".patterns").children(":last-child").append(patternArray[i][Math.floor(Math.random() * patternArray[i].length)])
+      $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+      $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+    }
+  }
+}
+function removePatterns() {
+  $(".patterns").children().remove();
+}
