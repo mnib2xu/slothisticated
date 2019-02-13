@@ -185,7 +185,7 @@ footer {
   font-size: 50px;
   text-transform: uppercase;
 }
-#start-the-game{
+.start-the-game{
   padding: 20px 40px;
   background-color: patternArray2;
   color: #FBF6D2;
@@ -236,5 +236,5 @@ footer {
   box-sizing: border-box;
 }
 #get-ready{
-  font-size: 60px;
+  font-size: 40px;
 }

@@ -14,13 +14,13 @@ class Game3 extends MasterGame {
         this.amountOfRepeats = 2;
         break;
       case 2:
-        this.amountOfRepeats = 4;
+        this.amountOfRepeats = 3;
         break;
       case 3:
-        this.amountOfRepeats = 6;
+        this.amountOfRepeats = 4;
         break;
       case 4:
-        this.amountOfRepeats = 8;
+        this.amountOfRepeats = 5;
         break;
       default:
         this.amountOfRepeats = 2;
