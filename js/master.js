@@ -80,7 +80,7 @@ class MasterGame {
     gameArray[0].remove();
     gameArray[1].remove();
     gameArray[2].remove();
-    var randomGame = this.getRandomItem(gameArray);
+    var randomGame = gameArray[0];
     randomGame.create();
   }
 

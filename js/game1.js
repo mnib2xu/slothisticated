@@ -50,12 +50,13 @@ class Game1 extends MasterGame{
     var elem = document.getElementById("myBar"); 
     var width = 100;
     this.countdown = setInterval(function(){
-      debugger
       if (width === 0) {
+        /*
         this.remove();
         this.decreaseLive("game1");
         $("#myProgress").css("display","none")
         clearInterval(this.countdown);
+        */
       } else {
         width--; 
         elem.style.width = width + '%'; 
