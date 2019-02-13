@@ -33,6 +33,7 @@ class MasterGame {
     $("#score").text(this.score)
     this.timer();
     this.updateStats();
+    this.loadRandomGame();
   }
 
   loadRandomGame() {
@@ -69,6 +70,51 @@ class MasterGame {
     }.bind(this), 1000);
   }
 }
+
+window.onresize = function(event) {
+  createPatterns();
+};
+
+function createPatterns() {
+  $(".patterns").children().remove();
+  var windowWidth = $(window).width();
+  var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
+  var patternArray = ['<div class="pattern-circle"></div>','<div class="pattern-triangle-upside-down"></div>',''];
+  var patternArray2 = ['<div class="pattern-circle"></div>','<div class="pattern-triangle"></div>',''];
+  var amountOfPatternBoxes = Math.floor(windowWidth / 80);
+  for (var i = 0; i < amountOfPatternBoxes; i++){
+    $(".patterns").append('<div class="pattern-box"></div>');
+    $(".patterns").children(":last-child").append(patternArray[Math.floor(Math.random() * patternArray.length)])
+    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+  }
+  for (var i = 0; i < amountOfPatternBoxes; i++){
+    $(".patterns").append('<div class="pattern-box"></div>');
+    $(".patterns").children(":last-child").append(patternArray2[Math.floor(Math.random() * patternArray2.length)])
+    $(".patterns").children(":last-child").children().css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+    $(".patterns").children(":last-child").css("background-color",colorArray[Math.floor(Math.random() * colorArray.length)]);
+  }
+}
+$("#start-the-game").click(function() {
+  createPatterns();
+  $("#menu").css("display","none");
+  $("#countdown").css("display","flex");
+  $(".live-bar").css("display","flex");
+  $("footer").css("display","flex");
+  var timeleft = 3;
+  $("#get-ready").text(timeleft + "...");
+  var downloadTimer = setInterval(function(){
+  createPatterns();
+  timeleft--;
+  $("#get-ready").text(timeleft + "...");
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    $("#countdown").css("display","none");
+    $(".patterns").children().remove();
+  }
+  },1000);
+})
+
 
 // document ready
 $(document).ready(function () {
