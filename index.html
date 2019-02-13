@@ -43,8 +43,11 @@
         <!-- CountDown -->
         <div id="countdown" style="display:none;">
             <div class="main-menu">
-                <div></div>
-                <h1>Get ready!</h1>
+                <div id="reaction-result" style="display:none;">
+                    <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div><br />
+                    <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
+                </div>
+                <h1 class="main-title">Get ready!</h1>
                 <span id="get-ready"></span>
             </div>
         </div>
@@ -102,13 +105,6 @@
                 </div>
                 <div class="reactionBox hidden" id="reaction-go">
                     <img id="sloth-reaction" src="img/react.jpg" alt="sloth-face">
-                </div>
-                <div class="reactionBox hidden" id="reaction-result">
-                    <img id="sloth-result" alt="sloth-face">
-                    <div id="reaction-time-box">
-                        <div class="reaction-time"> Allowed Time: <span id="time-limit"></span> MS </div>
-                        <div class="reaction-time">Your reaction: <span id="reaction-ms"></span> MS</div>
-                    </div>
                 </div>
             </div>
         </section>

@@ -8,17 +8,20 @@ class MasterGame {
     this.__proto__.score = 0;
   }
 
-  decreaseLive() {
+  decreaseLive(previousGame) {
+    $(".live-bar ul li:last-child").remove();
     if (this.__proto__.__proto__.slothicles === 1){
       $("#end-screen").css("display","flex");
       $("#random-question").text("The end!");
     }else{
       this.__proto__.__proto__.slothicles -= 1;
-      $(".live-bar ul li:last-child").remove();
       $("#countdown").css("display","flex");
       $("#random-question").text("You Failed!");
-      $("#countdown").children().children(":first-child").append('<img id="game-feedback-img" src="img/come-on-man.jpg" />');
-      debugger
+      $(".question-area").css("background-color","rgb(212, 156, 168)")
+      if(previousGame === "game2"){
+        debugger
+        $("#reaction-result").css("display","block");
+      }
       var timeleft = 3;
       $("#get-ready").text(timeleft + "...");
       var downloadTimer = setInterval(function(){
@@ -27,14 +30,15 @@ class MasterGame {
       if(timeleft <= 0){
         clearInterval(downloadTimer);
         $("#countdown").css("display","none");
-        $("#game-feedback-img").remove();
+        $(".question-area").css("background-color","rgb(86, 52, 170)")
+        $("#reaction-result").css("display","none");
         this.loadRandomGame();
       }
       }.bind(this),1000);
     }
   }
 
-  increaseScore() {
+  increaseScore(previousGame) {
     this.__proto__.__proto__.score++;
     if (this.__proto__.__proto__.score > 12) {
       this.__proto__.level = 4;
@@ -43,11 +47,15 @@ class MasterGame {
     } else if (this.__proto__.__proto__.score > 4) {
       this.__proto__.level = 2;
     }
+    if(previousGame === "game2"){
+      debugger
+      $("#reaction-result").css("display","block");
+    }
     $("#score").text(this.__proto__.__proto__.score);
     $("#level").text(this.__proto__.level);
     $("#countdown").css("display","flex");
     $("#random-question").text("You passed!");
-    $("#countdown").children().children(":first-child").append('<img id="game-feedback-img" src="img/react.jpg" />');
+    $(".question-area").css("background-color","rgb(103, 154, 168)")
     var timeleft = 3;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function(){
@@ -56,7 +64,8 @@ class MasterGame {
     if(timeleft <= 0){
       clearInterval(downloadTimer);
       $("#countdown").css("display","none");
-      $("#game-feedback-img").remove();
+      $(".question-area").css("background-color","rgb(86, 52, 170)")
+      $("#reaction-result").css("display","none");
       this.loadRandomGame();
     }
     }.bind(this),1000);

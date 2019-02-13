@@ -95,7 +95,7 @@ class Game3 extends MasterGame {
       //ENTERS THIS PART IF INCORRECT
       $(".gamebutton").off("click");
       this.remove();
-      this.decreaseLive();
+      this.decreaseLive("game3");
     } else {
 
       // ENTERS THIS PART IF CLICK IS CORRECT
@@ -103,7 +103,7 @@ class Game3 extends MasterGame {
       if (this.player.length === this.currentGame.length) {
         $(".gamebutton").off("click");
         this.remove();
-        this.increaseScore();
+        this.increaseScore("game3");
         // this.create();
       }
     }
