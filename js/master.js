@@ -13,6 +13,8 @@ class MasterGame {
     if (this.__proto__.__proto__.slothicles === 1) {
       $("#final-score").text(this.__proto__.__proto__.score);
       $("#end-screen").css("display", "flex");
+      $("footer").css("display","none");
+      $(".live-bar").css("display","none");
       $("#random-question").text("The end!");
     } else {
       this.__proto__.__proto__.slothicles -= 1;
@@ -22,25 +24,48 @@ class MasterGame {
       $("#random-question").text("You Failed!");
       $(".question-area").css("background-color", "rgb(212, 156, 168)")
       this.getGetGreadyCountDown();
-    }
+    } 
   }
 
   increaseScore(previousGame) {    this.__proto__.__proto__.score++;
-    if (this.__proto__.__proto__.score >= 6) {
+    var levelUp = false;
+    if (this.__proto__.__proto__.score === 6) {
       this.__proto__.__proto__.level = 4;
-    } else if (this.__proto__.__proto__.score >= 4) {
+      levelUp = true;
+    } else if (this.__proto__.__proto__.score === 4) {
       this.__proto__.__proto__.level = 3;
-    } else if (this.__proto__.__proto__.score >= 2) {
+      levelUp = true;
+    } else if (this.__proto__.__proto__.score === 2) {
       this.__proto__.__proto__.level = 2;
+      levelUp = true;
     }
+
     if (previousGame === "game2") {
       $("#reaction-result").css("display", "block");
     }
     $("#score").text(this.__proto__.__proto__.score);
-    $("#level").text(this.__proto__.__proto__.level);
+    $(".level").text(this.__proto__.__proto__.level);
 
     $("#random-question").text("You passed!");
     $(".question-area").css("background-color", "rgb(103, 154, 168)")
+    if (levelUp){
+      $("#level-up-screen").css("display","flex");
+      $("#random-question").text("Level Up!")
+      this.listenToContinueButton();
+    }else{
+      this.continueGame();
+    }
+  }
+
+  listenToContinueButton() {
+    $("#continue-game").click(function (event) {
+      this.continueGame();
+    }.bind(this));
+  }
+  
+  continueGame() {
+    $("#continue-game").off("click");
+    $("#level-up-screen").css("display","none");
     this.getGetGreadyCountDown();
   }
 
@@ -69,7 +94,7 @@ class MasterGame {
       $(".live-bar ul").append('<li class="live live"><img src="img/sloth.svg"></li>')
     }
     $("#score").text(this.__proto__.score)
-    $("#level").text(this.__proto__.level)
+    $(".level").text(this.__proto__.level)
     this.updateStats();
   }
 
@@ -119,7 +144,7 @@ $(document).ready(function () {
   brain.__proto__.allGames.push(myGame4);
 
   // Start
-  $(".start-the-game").click(function () {
+  $(".start-game").click(function () {
     $("#random-question").text("");
     createPatterns();
 
