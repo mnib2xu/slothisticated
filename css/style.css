@@ -157,7 +157,21 @@ footer {
   transform: translateX(-50%);
   width: 100%;
   max-width: 500px;
+  pointer-events: none;
 }
+
+/* HAIL SLOTH ORIENTATION LANDSCAPE */
+@media (orientation: landscape) {
+  #hail-sloth {
+    height: 35vh;
+    width: 30vw;
+  }
+  main section div {
+    height: 50vh;
+  }
+}
+
+/* MAIN TITLE */
 @media (min-width: 1000px) {
   .main-title{
     font-size: 60px;

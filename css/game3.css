@@ -37,3 +37,18 @@
 #dark.hover {
   background-color: rgb(103, 154, 168);
 }
+
+@media (orientation: landscape) {
+  .gamebutton {
+    width: 35vh;
+    height: 35vh;
+    margin: 10px;
+  }
+
+  @media (min-width: 1000px) {
+    .gamebutton {
+      width:20vw;
+      height:20vw;
+    }
+  }
+}
