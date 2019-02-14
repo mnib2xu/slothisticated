@@ -15,7 +15,7 @@ class MasterGame {
       $("#end-screen").css("display", "flex");
       $("footer").css("display","none");
       $(".live-bar").css("display","none");
-      $("#random-question").text("The end!");
+      $("#random-question").text("You reached the end!");
     } else {
       this.__proto__.__proto__.slothicles -= 1;
       if (previousGame === "game2") {
@@ -50,7 +50,12 @@ class MasterGame {
     $(".question-area").css("background-color", "rgb(103, 154, 168)")
     if (levelUp){
       $("#level-up-screen").css("display","flex");
-      $("#random-question").text("Level Up!")
+      $("#random-question").text("Level Up!");
+      // Define text fo level Up screens here:
+      var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!"];
+      $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level-2]);
+      $(".live-bar").css("display","none");
+      $("footer").css("display","none");
       this.listenToContinueButton();
     }else{
       this.continueGame();
@@ -66,6 +71,8 @@ class MasterGame {
   continueGame() {
     $("#continue-game").off("click");
     $("#level-up-screen").css("display","none");
+    $(".live-bar").css("display","flex");
+    $("footer").css("display","flex");
     this.getGetGreadyCountDown();
   }
 
