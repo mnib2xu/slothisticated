@@ -13,8 +13,8 @@ class MasterGame {
     if (this.__proto__.__proto__.slothicles === 1) {
       $("#final-score").text(this.__proto__.__proto__.score);
       $("#end-screen").css("display", "flex");
-      $("footer").css("display","none");
-      $(".live-bar").css("display","none");
+      // $("footer").css("display","none");
+      // $(".live-bar").css("display","none");
       $("#random-question").text("You reached the end!");
     } else {
       this.__proto__.__proto__.slothicles -= 1;
@@ -66,8 +66,8 @@ class MasterGame {
       // Define text fo level Up screens here:
       var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!"];
       $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level-2]);
-      $(".live-bar").css("display","none");
-      $("footer").css("display","none");
+      // $(".live-bar").css("display","none");
+      // $("footer").css("display","none");
       this.listenToContinueButton();
     }else{
       this.continueGame();
