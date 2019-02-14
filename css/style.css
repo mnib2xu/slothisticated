@@ -150,11 +150,22 @@ footer {
 }
 
 #hail-sloth {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   margin: 0 auto;
+  float: center;
   left: 50%;
-  margin-left: -238px;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+}
+@media (min-width: 1000px) {
+  .main-title{
+    font-size: 60px;
+  }
+  .sub-title, .start-the-game{
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 425px) {
