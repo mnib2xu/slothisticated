@@ -23,20 +23,25 @@
 }
 
 #blue.hover {
-  background-color: rgb(86, 52, 170);
+  /* background-color: rgb(86, 52, 170); */
 }
 
 #green.hover {
-  background-color: rgb(212, 156, 168);
+  /* background-color: rgb(212, 156, 168); */
 }
 
 #red.hover {
-  background-color: rgb(217, 225, 190);
+  /* background-color: rgb(217, 225, 190); */
 }
 
 #dark.hover {
-  background-color: rgb(103, 154, 168);
+  /* background-color: rgb(103, 154, 168); */
 }
+
+#blue.hover, #blue:active, #green.hover, #green:active, #red.hover, #red:active, #dark.hover, #dark:active {
+  background-color: #F83CA7;
+}
+
 
 @media (orientation: landscape) {
   .gamebutton {
@@ -55,4 +60,13 @@
       max-height: 120px;
     }
   }
+}
+
+#waitforit{
+  position: fixed;
+  float: center;
+  top: 20vh;
+  padding: 5px 7px;
+  border-radius: 10px;
+  color: #D9E1BE;
 }

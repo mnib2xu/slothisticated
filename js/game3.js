@@ -42,6 +42,10 @@ class Game3 extends MasterGame {
         break;
     }
     $("#game3").css("display", "flex");
+    //$("#game3").css("background-color", "pink");
+    $("#waitforit").text("Wait and watch...")
+    $("#waitforit").css("background-color","rgb(212, 156, 168)");
+
     this.clearGame();
   }
 
@@ -53,7 +57,6 @@ class Game3 extends MasterGame {
   letButtonsListen() {
     $(".gamebutton").click(function (event) {
       this.addToPlayer(event.currentTarget.id);
-
     }.bind(this));
   }
 
@@ -75,9 +78,15 @@ class Game3 extends MasterGame {
       i++;
       if (i >= this.currentGame.length) {
         clearInterval(moves);
+        setTimeout(function(){ 
+          //$("#game3").css("background-color", "lightgreen");
+          $("#waitforit").text("Repeat!");
+          $("#waitforit").css("background-color","rgb(103, 154, 168)");
+          this.clearPlayer();
+        }.bind(this), 1000);
+        
       }
     }.bind(this), 600)
-    this.clearPlayer();
   }
 
   playGame(field) {
