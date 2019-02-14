@@ -27,10 +27,17 @@ class MasterGame {
     } 
   }
 
+<<<<<<< HEAD
   increaseScore(previousGame) { 
+=======
+  increaseScore(previousGame) {    
+>>>>>>> e8eabe22a31c3bf05ca2323e8af7ae6556f52675
     this.__proto__.__proto__.score++;
     var levelUp = false;
-    if (this.__proto__.__proto__.score === 35) {
+    if (this.__proto__.__proto__.score === 40){
+      this.__proto__.__proto__.level = 9;
+      levelUp = true;
+    }else if (this.__proto__.__proto__.score === 35) {
       this.__proto__.__proto__.level = 8;
       levelUp = true;
     }else if (this.__proto__.__proto__.score === 30) {

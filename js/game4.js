@@ -35,6 +35,9 @@ class Game4 extends MasterGame {
       case 8:
         this.countdownTime = 0.5;
         break;
+      case 9:
+        this.countdownTime = 0.4;
+        break;
       default:
         this.countdownTime = 2;
         break;
