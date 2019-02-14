@@ -180,6 +180,41 @@ footer {
   align-items: center;
 }
 
+/* Time (Progress Bar) */
+#myProgress {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 80%;;
+  max-width: 500px;
+  background-color: #ddd;
+  border-radius: 10px;
+  position: absolute;
+  height: 30px;
+  top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+#myBar {
+  width: 80%;;
+  max-width: 500px;
+  height: 30px;
+  background-color: rgb(86, 52, 170);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+}
+@media (max-width: 1000px) {
+  #myProgress{
+    height: 10px;
+  }
+  #myBar{
+    height: 10px;
+  }
+}
+
 /* Creating the Patterns */
 .patterns {
   display: flex;
@@ -224,3 +259,4 @@ footer {
 #get-ready {
   font-size: 40px;
 }
+
