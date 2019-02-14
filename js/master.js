@@ -212,12 +212,18 @@ function createPatterns() {
   $(".patterns").children().remove();
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
+  var factor = 0;
+  if(windowWidth < 800){
+    factor = 0.1
+  }else{
+    factor = 0.09
+  }
   var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
   var patternArray = [
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle-upside-down"></div>', ''],
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle"></div>', '']
   ];
-  var amountOfPatternBoxes = Math.floor(windowWidth / (windowHeight * 0.09));
+  var amountOfPatternBoxes = Math.floor(windowWidth / (windowHeight * factor));
   for (var i = 0; i < 2; i++) {
     for (var j = 0; j < amountOfPatternBoxes; j++) {
       $(".patterns").append('<div class="pattern-box"></div>');
