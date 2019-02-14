@@ -15,16 +15,28 @@ class Game2 extends MasterGame{
     $("#game2").css("display","flex");
     switch (this.level) {
       case 1:
-        this.timeLimit = 600;
+        this.timeLimit = 1000;
         break;
       case 2:
-        this.timeLimit = 500;
+        this.timeLimit = 750;
         break;
       case 3:
-        this.timeLimit = 450;
+        this.timeLimit = 500;
         break;
       case 4:
         this.timeLimit = 400;
+        break;
+      case 5:
+        this.timeLimit = 350;
+        break;
+      case 6:
+        this.timeLimit = 325;
+        break;
+      case 7:
+        this.timeLimit = 300;
+        break;
+      case 8:
+        this.timeLimit = 290;
         break;
       default:
         this.timeLimit = 500;

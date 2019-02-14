@@ -29,13 +29,25 @@ class MasterGame {
 
   increaseScore(previousGame) {    this.__proto__.__proto__.score++;
     var levelUp = false;
-    if (this.__proto__.__proto__.score === 6) {
+    if (this.__proto__.__proto__.score === 35) {
+      this.__proto__.__proto__.level = 8;
+      levelUp = true;
+    }else if (this.__proto__.__proto__.score === 30) {
+      this.__proto__.__proto__.level = 7;
+      levelUp = true;
+    } else if (this.__proto__.__proto__.score === 25) {
+      this.__proto__.__proto__.level = 6;
+      levelUp = true;
+    }else if (this.__proto__.__proto__.score === 20) {
+      this.__proto__.__proto__.level = 5;
+      levelUp = true;
+    } else if (this.__proto__.__proto__.score === 15) {
       this.__proto__.__proto__.level = 4;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 4) {
+    }else if (this.__proto__.__proto__.score === 10) {
       this.__proto__.__proto__.level = 3;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 2) {
+    } else if (this.__proto__.__proto__.score === 5) {
       this.__proto__.__proto__.level = 2;
       levelUp = true;
     }
@@ -78,7 +90,7 @@ class MasterGame {
 
   getGetGreadyCountDown() {
     $("#countdown").css("display", "flex");
-    var timeleft = 1;
+    var timeleft = 3;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function () {
       timeleft--;
@@ -163,7 +175,7 @@ $(document).ready(function () {
     $("footer").css("display", "flex");
     brain.init();
 
-    var timeleft = 1;
+    var timeleft = 3;
     $("#get-ready").text(timeleft + "...");
     var downloadTimer = setInterval(function () {
       createPatterns();

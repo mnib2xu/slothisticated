@@ -9,6 +9,7 @@ class Game1 extends MasterGame{
     this.randomColor = "";
     this.questionType = "";
     this.countdown;
+    this.countdownTime;
   }
   create() {
     $("#game1").css("display","flex");
@@ -17,14 +18,43 @@ class Game1 extends MasterGame{
     this.objects.forEach(function(element,index) {
       element.css("background-color",backgroundColorArray[index]);
     });
-    if (this.level > 1){
+    switch (this.level) {
+      case 1:
+        this.countdownTime = 30;
+        break;
+      case 2:
+        this.countdownTime = 20;
+        break;
+      case 3:
+        this.countdownTime = 30;
+        break;
+      case 4:
+        this.countdownTime = 20;
+        break;
+      case 5:
+        this.countdownTime = 30;
+        break;
+      case 6:
+        this.countdownTime = 20;
+        break;
+      case 7:
+        this.countdownTime = 30;
+        break;
+      case 8:
+        this.countdownTime = 20;
+        break;
+      default:
+        this.countdownTime = 30;
+        break;
+    }
+    if (this.level >= 3){
       // fill border color
       var borderColorArray = this.doNotRepeat([backgroundColorArray]);
       this.objects.forEach(function(element,index) {
         element.css("border", `${borderColorArray[index]} 10px solid`);
       });
     }
-    if (this.level > 2){
+    if (this.level >= 5){
       // fill text
       var textColorArray = this.doNotRepeat([borderColorArray, backgroundColorArray]);
       this.objects.forEach(function(element,index) {
@@ -33,7 +63,7 @@ class Game1 extends MasterGame{
         element.children().children("div").css("display","none");
       },this);
     }
-    if (this.level > 3){
+    if (this.level >= 7){
       // fill text
       var innerCircleColorArray = this.doNotRepeat([backgroundColorArray, borderColorArray, textColorArray]);
       this.objects.forEach(function(element,index) {
@@ -60,7 +90,7 @@ class Game1 extends MasterGame{
         width--; 
         elem.style.width = width + '%'; 
       }
-    }.bind(this), 30);
+    }.bind(this), this.countdownTime);
   }
 
   stopCountdown() {
@@ -71,13 +101,13 @@ class Game1 extends MasterGame{
   createQuestion() {
     this.randomColor = this.getRandomItem(this.colorArray);
     var types = ["bg"];
-    if (this.level > 1){
+    if (this.level >= 3){
       types.push("border");
     }
-    if (this.level > 2){
+    if (this.level >= 5){
       types.push("text");
     }
-    if (this.level > 3){
+    if (this.level >= 7){
       types.pop();
       types.push("innerCircle");
     }

@@ -12,16 +12,28 @@ class Game4 extends MasterGame {
   create() {
     switch (this.level) {
       case 1:
-        this.countdownTime = 40;
+        this.countdownTime = 50;
         break;
       case 2:
-        this.countdownTime = 30;
+        this.countdownTime = 40;
         break;
       case 3:
-        this.countdownTime = 20;
+        this.countdownTime = 30;
         break;
       case 4:
+        this.countdownTime = 20;
+        break;
+      case 5:
+        this.countdownTime = 15;
+        break;
+      case 6:
         this.countdownTime = 10;
+        break;
+      case 7:
+        this.countdownTime = 0.75;
+        break;
+      case 8:
+        this.countdownTime = 0.5;
         break;
       default:
         this.countdownTime = 2;
