@@ -26,3 +26,8 @@
   padding-top: 40px;
   font-size: 30px;
 }
+
+#react-text {
+  font-size: 5vh;
+  text-align: center;
+}

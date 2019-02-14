@@ -1,12 +1,13 @@
 /*** Color Circle Game CSS ***/ 
 /* 2x2 GAME GRID */
 .grid2x2 {
-  min-height: 45%;
+  /* min-height: 45%; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  align-content: center;
   /* margin: 4vh 0; */
 }
 

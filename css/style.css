@@ -8,7 +8,7 @@ body {
 
 /*  QUESTION AREA */
 .question-area {
-  height: 160px;
+  height: 18vh;
   background-color: #5634AA;
   color: #D9E1BE;
   display: flex;
@@ -17,7 +17,8 @@ body {
 }
 
 .question-area h1 {
-  max-width: 600px;
+  max-width: 80%;
+  font-size: 5vh;
 }
 
 /* SLOSTHICLES LIVE BAR */
@@ -34,6 +35,8 @@ body {
   align-items: center;
   justify-content: left;
   min-height: 50px;
+  margin-top:0;
+  margin-bottom: 5px;
 }
 
 .live-bar ul,
@@ -50,6 +53,7 @@ p {
   width: 30px;
   max-height: 30px;
   margin: 7px;
+
 }
 
 @media (min-width: 1440px) {
@@ -72,7 +76,7 @@ main section div {
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,11 +161,13 @@ footer {
   .main-title {
     font-size: 10vw;
   }
+
   .sub-title {
     font-size: 5vw;
     font-weight: 50;
     margin: 0 20px;
   }
+
   .start-the-game {
     font-size: 5vw;
   }
