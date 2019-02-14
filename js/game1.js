@@ -28,6 +28,7 @@ class Game1 extends MasterGame{
       // fill text
       var textColorArray = this.doNotRepeat([borderColorArray, backgroundColorArray]);
       this.objects.forEach(function(element,index) {
+        element.children().children("div").css("display","block");
         element.children().children("span").text(this.rgbToText(textColorArray[index]));
         element.children().children("div").css("display","none");
       },this);
@@ -125,6 +126,13 @@ class Game1 extends MasterGame{
       this.stopCountdown();
       this.decreaseLive("game1");
     }
+    this.objects.forEach(function(element){
+      element.css("border", "0px");
+      element.css("background-color", "none");
+      element.children().children("span").text("");
+      element.children().children("div").css("display","none");
+      element.children().children("div").css("background-color","none");
+    })
   }
   // Fisher-Yates Shuffle
   shuffleArray(array) {

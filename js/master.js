@@ -3,7 +3,7 @@
 class MasterGame {
 
   constructor() {
-    this.__proto__.slothicles = 4;
+    this.__proto__.slothicles = 2;
     this.__proto__.allGames = [];
     this.__proto__.score = 0;
   }
@@ -26,11 +26,11 @@ class MasterGame {
   }
 
   increaseScore(previousGame) {    this.__proto__.__proto__.score++;
-    if (this.__proto__.__proto__.score >= 15) {
+    if (this.__proto__.__proto__.score >= 6) {
       this.__proto__.__proto__.level = 4;
-    } else if (this.__proto__.__proto__.score >= 10) {
+    } else if (this.__proto__.__proto__.score >= 4) {
       this.__proto__.__proto__.level = 3;
-    } else if (this.__proto__.__proto__.score >= 5) {
+    } else if (this.__proto__.__proto__.score >= 2) {
       this.__proto__.__proto__.level = 2;
     }
     if (previousGame === "game2") {
