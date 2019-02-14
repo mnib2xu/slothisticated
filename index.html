@@ -27,7 +27,7 @@
             <div class="main-menu">
                 <h1 class="main-title">Slothisticated</h1>
                 <h2 class="sub-title">Are you slothisticated enough for this game?</h2>
-                <button class="start-the-game" >Let's Sloth</button><br />
+                <button class="start-game button" >Let's Sloth</button><br />
                 <img id="hail-sloth" src="img/sloth-up.png" />
                 <br>
             </div>
@@ -44,12 +44,21 @@
                 <span id="get-ready"></span>
             </div>
         </div>
+        <!-- Level Screen -->
+        <div id="level-up-screen" style="display:none;">
+            <div class="main-menu">
+                <h2>Level: <span class="level"></span></h2>
+                <h2 id="level-up-text">Good job human!</h2>
+                <img src="img/sloth-up.png" /><br />
+                <button id="continue-game" class="button"> Continue </button>
+            </div>
+        </div>
         <!-- END -->
         <div id="end-screen" style="display:none;">
             <div class="main-menu">
                 <h1 class="main-title">Your Score: <span id="final-score"></span></h1>
                 <h2 class="sub-title">much slothisticated!</h2>
-                <button class="start-the-game">Let's reSloth</button>
+                <button class="start-game button">Let's reSloth</button>
                 <br>
             </div>
         </div>
@@ -153,7 +162,7 @@
         </div>
         <div class="score-bar">
             <p>Level:</p>
-            <span id="level">1</span>
+            <span class="level">1</span>
         </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

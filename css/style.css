@@ -142,7 +142,7 @@ footer {
   font-weight: 50;
 }
 
-.start-the-game {
+.button {
   font-size: 2.8vw;
   padding: 20px 40px;
   color: #FBF6D2;
@@ -189,7 +189,7 @@ footer {
   .main-title{
     font-size: 60px;
   }
-  .sub-title, .start-the-game{
+  .sub-title, .button{
     font-size: 30px;
   }
 }
@@ -205,7 +205,7 @@ footer {
     margin: 0 20px;
   }
 
-  .start-the-game {
+  .button {
     font-size: 5vw;
   }
 }
@@ -215,6 +215,11 @@ footer {
   height: 60vh;
   display: flex;
   align-items: center;
+}
+
+/* LEVEL UP SCREEN */
+#level-up-screen{
+  flex-direction: column;
 }
 
 /* Time (Progress Bar) */
