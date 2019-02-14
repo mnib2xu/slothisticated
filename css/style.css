@@ -58,7 +58,6 @@ p {
 
 }
 
-
 /* SCORE BAR */
 main section div {
   height: 60vh;
@@ -211,6 +210,10 @@ footer {
 /* LEVEL UP SCREEN */
 #level-up-screen{
   flex-direction: column;
+}
+
+#sloth-img {
+  height: 25vh;
 }
 
 /* Time (Progress Bar) */
