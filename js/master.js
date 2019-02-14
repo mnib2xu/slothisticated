@@ -68,7 +68,7 @@ class MasterGame {
       $("#level-up-screen").css("display","flex");
       $("#random-question").text("Level Up!");
       // Define text fo level Up screens here:
-      var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!"];
+      var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!", "Climbing the tree like me...", "Slothastic!", "Damn, Slohn!", "I wish my slohn was as slothisticated as you!", "You reached slothistication!"];
       $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level-2]);
       // $(".live-bar").css("display","none");
       // $("footer").css("display","none");
