@@ -1,13 +1,13 @@
-/*** Red Button Game CSS ***/ 
-.red-btn{
+/*** Red Button Game CSS ***/
+.red-btn {
   display: flex;
   text-decoration: none;
   background: #ff8181;
   color: #FFF;
-  width: 200px;
-  height: 200px;
+  width: 50vw;
+  height: 50vw;
   line-height: 120px;
-  border-radius: 50%;
+  border-radius: 1000%;
   text-align: center;
   font-weight: bold;
   vertical-align: middle;
@@ -17,7 +17,7 @@
   transition: .4s;
 }
 
-.red-btn:active{
+.red-btn:active {
   -ms-transform: translateY(2px);
   -webkit-transform: translateY(2px);
   transform: translateY(2px);
@@ -27,4 +27,11 @@
 
 .red-btn img {
   height: 60%;
+}
+
+@media (orientation: landscape) {
+  .red-btn {
+    max-width: 30vh;
+    max-height: 30vh;
+  }
 }

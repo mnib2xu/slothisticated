@@ -43,12 +43,16 @@
     width: 35vh;
     height: 35vh;
     margin: 10px;
+    max-width: 120px;
+    max-height: 120px;
   }
 
   @media (min-width: 1000px) {
     .gamebutton {
       width:20vw;
       height:20vw;
+      max-width: 120px;
+      max-height: 120px;
     }
   }
 }
