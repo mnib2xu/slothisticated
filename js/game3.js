@@ -34,6 +34,9 @@ class Game3 extends MasterGame {
       case 8:
         this.amountOfRepeats = 9;
         break;
+      case 9:
+        this.amountOfRepeats = 10;
+        break;
       default:
         this.amountOfRepeats = 2;
         break;

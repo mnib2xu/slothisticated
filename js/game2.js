@@ -36,7 +36,10 @@ class Game2 extends MasterGame{
         this.timeLimit = 300;
         break;
       case 8:
-        this.timeLimit = 290;
+        this.timeLimit = 280;
+        break;
+      case 9:
+        this.timeLimit = 260;
         break;
       default:
         this.timeLimit = 500;
