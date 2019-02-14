@@ -17,7 +17,8 @@ body {
 }
 
 .question-area h1 {
-  max-width: 600px;
+  max-width: 80%;
+  font-size: 5vh;
 }
 
 /* SLOSTHICLES LIVE BAR */
@@ -34,6 +35,8 @@ body {
   align-items: center;
   justify-content: left;
   min-height: 50px;
+  margin-top:0;
+  margin-bottom: 5px;
 }
 
 .live-bar ul,
@@ -50,6 +53,7 @@ p {
   width: 30px;
   max-height: 30px;
   margin: 7px;
+
 }
 
 @media (min-width: 1440px) {
@@ -72,7 +76,7 @@ main section div {
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,11 +171,13 @@ footer {
   .main-title {
     font-size: 10vw;
   }
+
   .sub-title {
     font-size: 5vw;
     font-weight: 50;
     margin: 0 20px;
   }
+
   .start-the-game {
     font-size: 5vw;
   }
@@ -182,6 +188,41 @@ footer {
   height: 60vh;
   display: flex;
   align-items: center;
+}
+
+/* Time (Progress Bar) */
+#myProgress {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 80%;;
+  max-width: 500px;
+  background-color: #ddd;
+  border-radius: 10px;
+  position: absolute;
+  height: 30px;
+  top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+#myBar {
+  width: 80%;;
+  max-width: 500px;
+  height: 30px;
+  background-color: rgb(86, 52, 170);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+}
+@media (max-width: 1000px) {
+  #myProgress{
+    height: 10px;
+  }
+  #myBar{
+    height: 10px;
+  }
 }
 
 /* Creating the Patterns */
@@ -228,3 +269,4 @@ footer {
 #get-ready {
   font-size: 40px;
 }
+

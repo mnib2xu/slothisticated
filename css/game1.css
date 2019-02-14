@@ -1,12 +1,13 @@
 /*** Color Circle Game CSS ***/ 
 /* 2x2 GAME GRID */
 .grid2x2 {
-  min-height: 45%;
+  /* min-height: 45%; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  align-content: center;
   /* margin: 4vh 0; */
 }
 
@@ -48,38 +49,6 @@
   border-radius: 100%;
 }
 
-#myProgress {
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 80%;;
-  max-width: 500px;
-  background-color: #ddd;
-  border-radius: 10px;
-  position: absolute;
-  height: 30px;
-  top: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
-#myBar {
-  width: 80%;;
-  max-width: 500px;
-  height: 30px;
-  background-color: rgb(86, 52, 170);
-  text-align: center;
-  line-height: 30px;
-  color: white;
-  border-radius: 10px;
-}
-@media (max-width: 1000px) {
-  #myProgress{
-    height: 10px;
-  }
-  #myBar{
-    height: 10px;
-  }
-}
+
 
 
