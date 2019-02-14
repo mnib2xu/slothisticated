@@ -25,20 +25,19 @@ class MasterGame {
     }
   }
 
-  increaseScore(previousGame) {
-    this.__proto__.__proto__.score++;
+  increaseScore(previousGame) {    this.__proto__.__proto__.score++;
     if (this.__proto__.__proto__.score >= 15) {
-      this.__proto__.level = 4;
+      this.__proto__.__proto__.level = 4;
     } else if (this.__proto__.__proto__.score >= 10) {
-      this.__proto__.level = 3;
+      this.__proto__.__proto__.level = 3;
     } else if (this.__proto__.__proto__.score >= 5) {
-      this.__proto__.level = 2;
+      this.__proto__.__proto__.level = 2;
     }
     if (previousGame === "game2") {
       $("#reaction-result").css("display", "block");
     }
     $("#score").text(this.__proto__.__proto__.score);
-    $("#level").text(this.__proto__.level);
+    $("#level").text(this.__proto__.__proto__.level);
 
     $("#random-question").text("You passed!");
     $(".question-area").css("background-color", "rgb(103, 154, 168)")
@@ -66,14 +65,16 @@ class MasterGame {
     this.__proto__.level = 1;
     this.__proto__.score = 0;
     this.__proto__.slothicles = 4;
-    $("#slothicles").text(this.slothicles)
+    for (var i = 0; i < this.__proto__.slothicles; i++){
+      $(".live-bar ul").append('<li class="live live"><img src="img/sloth.svg"></li>')
+    }
     $("#score").text(this.__proto__.score)
-    //this.timer();
+    $("#level").text(this.__proto__.level)
     this.updateStats();
-    this.loadRandomGame();
   }
 
   loadRandomGame() {
+    console.log(this.__proto__.level);
     var gameArray = [];
     if (this.__proto__.allGames.length > 0) {
       gameArray = this.__proto__.allGames;
@@ -100,17 +101,6 @@ class MasterGame {
       alert("you are not slothisticated enough for this game!");
       this.slothicles = 3;
     }
-  }
-
-  timer() {
-    var sec = 0;
-    var timer = setInterval(function () {
-      $("#time").innerHTML = '00:' + sec;
-      sec++;
-      if (sec > 1000) {
-        clearInterval(timer);
-      }
-    }.bind(this), 1000);
   }
 }
 
@@ -140,6 +130,7 @@ $(document).ready(function () {
 
     $(".live-bar").css("display", "flex");
     $("footer").css("display", "flex");
+    brain.init();
 
     var timeleft = 1;
     $("#get-ready").text(timeleft + "...");
@@ -151,7 +142,7 @@ $(document).ready(function () {
         clearInterval(downloadTimer);
         $("#countdown").css("display", "none");
         removePatterns();
-        brain.init();
+        brain.loadRandomGame();
       }
     }, 1000);
   })
