@@ -135,12 +135,17 @@ footer {
 }
 
 .button {
-  font-size: 2.8vw;
-  padding: 20px 40px;
+  font-size: 16px;
+  padding: 3px 10px;
+
+  min-height: 35px;
+  max-height:35px;
   color: #FBF6D2;
+  border: none;
   background-color: #5634AA;
-  border-radius: 20px;
-  margin: 5px;
+  border-radius: 10px;
+  margin-top: 15px;
+  
   cursor: pointer;
 }
 
@@ -163,7 +168,7 @@ footer {
   .main-title{
     font-size: 60px;
   }
-  .sub-title, .button{
+  .sub-title {
     font-size: 30px;
   }
 }
@@ -177,10 +182,6 @@ footer {
     font-size: 30px;
     font-weight: 50;
     margin: 0 20px;
-  }
-
-  .button {
-    font-size: 5vw;
   }
 }
 
