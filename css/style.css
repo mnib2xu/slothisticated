@@ -8,7 +8,7 @@ body {
 
 /*  QUESTION AREA */
 .question-area {
-  height: 160px;
+  height: 18vh;
   background-color: #5634AA;
   color: #D9E1BE;
   display: flex;
@@ -186,30 +186,30 @@ footer {
 }
 
 .pattern-circle {
-  height: 80px;
-  width: 80px;
-  border-radius: 80px;
+  height: 9vh;
+  width: 9vh;
+  border-radius: 9vh;
 }
 
 .pattern-triangle {
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-bottom: 80px solid;
+  border-left: 4.5vh solid transparent;
+  border-right: 4.5vh solid transparent;
+  border-bottom: 9vh solid;
 }
 
 .pattern-triangle-upside-down {
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-top: 80px solid;
+  border-left: 4.5vh solid transparent;
+  border-right: 4.5vh solid transparent;
+  border-top: 9vh solid;
 }
 
 .pattern-box {
-  height: 80px;
-  width: 80px;
-  min-height: 80px;
-  min-width: 80px;
-  max-height: 80px;
-  max-width: 80px;
+  height: 9vh;
+  width: 9vh;
+  min-height: 9vh;
+  min-width: 9vh;
+  max-height: 9vh;
+  max-width: 9vh;
   background-color: white;
   box-sizing: border-box;
 }

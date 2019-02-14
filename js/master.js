@@ -74,7 +74,6 @@ class MasterGame {
   }
 
   loadRandomGame() {
-    console.log(this.__proto__.level);
     var gameArray = [];
     if (this.__proto__.allGames.length > 0) {
       gameArray = this.__proto__.allGames;
@@ -169,7 +168,7 @@ function createPatterns() {
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle-upside-down"></div>', ''],
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle"></div>', '']
   ];
-  var amountOfPatternBoxes = Math.floor(windowWidth / 80);
+  var amountOfPatternBoxes = Math.floor(windowWidth / 70);
   for (var i = 0; i < 2; i++) {
     for (var j = 0; j < amountOfPatternBoxes; j++) {
       $(".patterns").append('<div class="pattern-box"></div>');
