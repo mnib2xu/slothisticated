@@ -22,8 +22,11 @@
   background: pink;
 }
 #reaction-result{
-  padding-top: 40px;
-  font-size: 30px;
+  padding-top: 25vh;
+  font-size: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction: column;
 }
 
 #react-text {

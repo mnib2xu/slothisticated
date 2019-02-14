@@ -169,6 +169,15 @@ footer {
   main section div {
     height: 50vh;
   }
+  #menu {
+    height: 50vh;
+  }
+  #countdown {
+    height: 50vh;
+  }
+  #end-screen {
+    height: 50vh;
+  }
 }
 
 /* MAIN TITLE */
@@ -207,9 +216,9 @@ footer {
 /* Time (Progress Bar) */
 #myProgress {
   margin: 0 auto;
-  margin-top: 20px;
-  width: 80%;;
+  width: 80%;
   max-width: 500px;
+
   background-color: #ddd;
   border-radius: 10px;
   position: absolute;
