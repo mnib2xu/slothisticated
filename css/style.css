@@ -27,22 +27,24 @@ body {
   font-family: Tahoma;
   color: #5634AA;
   background-color: #F83CA7;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 90%;
-  max-width: 300px;
-  font-size: 20px;
+  max-width: 230px;
   margin: 20px auto;
   align-items: center;
   justify-content: left;
-  min-height: 50px;
+  padding: 3px 5px;
+  min-height: 35px;
+  max-height: 35px;
   margin-top:0;
   margin-bottom: 5px;
 }
 
 .live-bar ul,
 p {
+  font-size: 16px;
   display: flex;
-  padding-left: 8px;
+  padding-left: 5px;
   margin: 0;
 
 }
@@ -52,7 +54,7 @@ p {
   height: 30px;
   width: 30px;
   max-height: 30px;
-  margin: 7px;
+  margin: 3px;
 
 }
 
@@ -88,13 +90,15 @@ footer {
   margin-bottom: auto;
   padding: 0 20px;
   font-size: 20px;
-  height: 50px;
+  height: 35px;
   color: #5634AA;
   justify-content: center;
   background-color: #F83CA7;
-  border-radius: 15px;
+  border-radius: 10px;
+  margin:  5px;
   align-items: center;
   max-width: 150px;
+  
 }
 
 .score-bar p,
@@ -144,7 +148,7 @@ footer {
   color: #FBF6D2;
   background-color: #5634AA;
   border-radius: 20px;
-  margin: 25px;
+  margin: 5px;
   cursor: pointer;
 }
 
