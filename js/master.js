@@ -13,6 +13,8 @@ class MasterGame {
     if (this.__proto__.__proto__.slothicles === 1) {
       $("#final-score").text(this.__proto__.__proto__.score);
       $("#end-screen").css("display", "flex");
+      $(".live-bar").css("display", "none");
+      $("footer").css("display", "none");
       // $("footer").css("display","none");
       // $(".live-bar").css("display","none");
       $("#random-question").text("You reached the end!");
@@ -26,8 +28,12 @@ class MasterGame {
       this.getGetGreadyCountDown();
     }
   }
+<<<<<<< HEAD
 
   increaseScore(previousGame) {    
+=======
+  increaseScore(previousGame) {
+>>>>>>> 3bb4e12491f898c40bd66010f6b4563adc8d1c77
     this.__proto__.__proto__.score++;
     var levelUp = false;
     if (this.__proto__.__proto__.score === 40) {
@@ -212,12 +218,18 @@ function createPatterns() {
   $(".patterns").children().remove();
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
+  var factor = 0;
+  if(windowWidth < 800){
+    factor = 0.1
+  }else{
+    factor = 0.09
+  }
   var colorArray = ["rgb(212, 156, 168)", "rgb(86, 52, 170)", "rgb(86, 52, 170)", "rgb(103, 154, 168)", "rgb(248, 60, 167)"];
   var patternArray = [
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle-upside-down"></div>', ''],
     ['<div class="pattern-circle"></div>', '<div class="pattern-triangle"></div>', '']
   ];
-  var amountOfPatternBoxes = Math.floor(windowWidth / (windowHeight * 0.09));
+  var amountOfPatternBoxes = Math.floor(windowWidth / (windowHeight * factor));
   for (var i = 0; i < 2; i++) {
     for (var j = 0; j < amountOfPatternBoxes; j++) {
       $(".patterns").append('<div class="pattern-box"></div>');
