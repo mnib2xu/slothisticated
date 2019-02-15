@@ -331,3 +331,10 @@ footer {
     height: 50vh;
   }
 }
+
+#end-screen img#github-logo {
+  width: 30px;
+  height: 30px;
+  margin-top: 2vh;
+  margin-bottom: 0;
+}
