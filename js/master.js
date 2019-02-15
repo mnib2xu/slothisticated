@@ -28,12 +28,7 @@ class MasterGame {
       this.getGetGreadyCountDown();
     }
   }
-<<<<<<< HEAD
-
-  increaseScore(previousGame) {    
-=======
   increaseScore(previousGame) {
->>>>>>> 3bb4e12491f898c40bd66010f6b4563adc8d1c77
     this.__proto__.__proto__.score++;
     var levelUp = false;
     if (this.__proto__.__proto__.score === 40) {
