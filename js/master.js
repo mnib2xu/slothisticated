@@ -24,31 +24,35 @@ class MasterGame {
       $("#random-question").text("You Failed!");
       $(".question-area").css("background-color", "rgb(212, 156, 168)")
       this.getGetGreadyCountDown();
-    } 
+    }
   }
+<<<<<<< HEAD
+  increaseScore(previousGame) {
+=======
 
   increaseScore(previousGame) {    
+>>>>>>> 4880a4e4b95b4d9b7617d66991ebb512ecf9bd18
     this.__proto__.__proto__.score++;
     var levelUp = false;
-    if (this.__proto__.__proto__.score === 40){
+    if (this.__proto__.__proto__.score === 40) {
       this.__proto__.__proto__.level = 9;
       levelUp = true;
-    }else if (this.__proto__.__proto__.score === 35) {
+    } else if (this.__proto__.__proto__.score === 35) {
       this.__proto__.__proto__.level = 8;
       levelUp = true;
-    }else if (this.__proto__.__proto__.score === 30) {
+    } else if (this.__proto__.__proto__.score === 30) {
       this.__proto__.__proto__.level = 7;
       levelUp = true;
     } else if (this.__proto__.__proto__.score === 25) {
       this.__proto__.__proto__.level = 6;
       levelUp = true;
-    }else if (this.__proto__.__proto__.score === 20) {
+    } else if (this.__proto__.__proto__.score === 20) {
       this.__proto__.__proto__.level = 5;
       levelUp = true;
     } else if (this.__proto__.__proto__.score === 15) {
       this.__proto__.__proto__.level = 4;
       levelUp = true;
-    }else if (this.__proto__.__proto__.score === 10) {
+    } else if (this.__proto__.__proto__.score === 10) {
       this.__proto__.__proto__.level = 3;
       levelUp = true;
     } else if (this.__proto__.__proto__.score === 5) {
@@ -64,16 +68,21 @@ class MasterGame {
 
     $("#random-question").text("You passed!");
     $(".question-area").css("background-color", "rgb(103, 154, 168)")
-    if (levelUp){
-      $("#level-up-screen").css("display","flex");
+    if (levelUp) {
+      $("#level-up-screen").css("display", "flex");
       $("#random-question").text("Level Up!");
       // Define text fo level Up screens here:
+<<<<<<< HEAD
+      var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!"];
+      $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level - 2]);
+=======
       var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!", "Climbing the tree like me...", "Slothastic!", "Damn, Slohn!", "I wish my slohn was as slothisticated as you!", "You reached slothistication!"];
       $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level-2]);
+>>>>>>> 4880a4e4b95b4d9b7617d66991ebb512ecf9bd18
       // $(".live-bar").css("display","none");
       // $("footer").css("display","none");
       this.listenToContinueButton();
-    }else{
+    } else {
       this.continueGame();
     }
   }
@@ -83,12 +92,12 @@ class MasterGame {
       this.continueGame();
     }.bind(this));
   }
-  
+
   continueGame() {
     $("#continue-game").off("click");
-    $("#level-up-screen").css("display","none");
-    $(".live-bar").css("display","flex");
-    $("footer").css("display","flex");
+    $("#level-up-screen").css("display", "none");
+    $(".live-bar").css("display", "flex");
+    $("footer").css("display", "flex");
     this.getGetGreadyCountDown();
   }
 
@@ -113,7 +122,7 @@ class MasterGame {
     this.__proto__.level = 1;
     this.__proto__.score = 0;
     this.__proto__.slothicles = 4;
-    for (var i = 0; i < this.__proto__.slothicles; i++){
+    for (var i = 0; i < this.__proto__.slothicles; i++) {
       $(".live-bar ul").append('<li class="live live"><img src="img/sloth.svg"></li>')
     }
     $("#score").text(this.__proto__.score)
