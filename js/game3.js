@@ -29,7 +29,7 @@ class Game3 extends MasterGame {
         this.amountOfRepeats = 5;
         break;
       case 7:
-        this.amountOfRepeats = 7;
+        this.amountOfRepeats = 6;
         break;
       case 8:
         this.amountOfRepeats = 7;
