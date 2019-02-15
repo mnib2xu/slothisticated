@@ -15,6 +15,7 @@ class MasterGame {
       $("#end-screen").css("display", "flex");
       $(".live-bar").css("display", "none");
       $("footer").css("display", "none");
+      $("#sloth-end-meme").attr("src", `img/end-screen-img/sloth-level-`+(this.__proto__.__proto__.level).toString()+'.jpg');
       // $("footer").css("display","none");
       // $(".live-bar").css("display","none");
       $("#random-question").text("You reached the end!");

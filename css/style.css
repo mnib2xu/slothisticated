@@ -316,14 +316,17 @@ footer {
     height: 50vh;
     }
   #end-screen img {
-    height: 100%;
-    width: 40vh;
-    margin-bottom: 1vh
+    height: auto;
+    width: 60vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh
   }
   #end-screen .main-title {
     margin: 0;
   }
-
+  #end-screen .main-menu {
+    margin-top:25vh;
+  }
   #level-up-screen {
     height: 50vh;
   }
