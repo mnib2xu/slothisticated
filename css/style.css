@@ -332,8 +332,7 @@ footer {
 }
 
 #end-screen img#github-logo {
-  width: 30px;
-  height: 30px;
-  margin-top: 2vh;
-  margin-bottom: 0;
+  width: 32px;
+  height: 32px;
+  margin-bottom: -10px;
 }
