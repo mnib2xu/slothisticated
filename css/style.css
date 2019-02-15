@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   background-color: #FBF6D2;
-  font-family: "Tahoma, Verdana, sans-serif";
+  font-family: Tahoma, Verdana, sans-serif;
 }
 
 /*  QUESTION AREA */
@@ -24,7 +24,7 @@ body {
 /* SLOSTHICLES LIVE BAR */
 .live-bar {
   display: flex;
-  font-family: "Tahoma, Verdana, sans-serif";
+  font-family: Tahoma, Verdana, sans-serif;
   color: #5634AA;
   background-color: #F83CA7;
   border-radius: 10px;
