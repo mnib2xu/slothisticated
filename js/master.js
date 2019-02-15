@@ -26,12 +26,8 @@ class MasterGame {
       this.getGetGreadyCountDown();
     }
   }
-<<<<<<< HEAD
-  increaseScore(previousGame) {
-=======
 
   increaseScore(previousGame) {    
->>>>>>> 4880a4e4b95b4d9b7617d66991ebb512ecf9bd18
     this.__proto__.__proto__.score++;
     var levelUp = false;
     if (this.__proto__.__proto__.score === 40) {
@@ -72,13 +68,8 @@ class MasterGame {
       $("#level-up-screen").css("display", "flex");
       $("#random-question").text("Level Up!");
       // Define text fo level Up screens here:
-<<<<<<< HEAD
-      var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!"];
-      $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level - 2]);
-=======
       var levelUpTextArray = ["That was only warm up!", "Let's sloth it up!", "Good Job, Human!", "Climbing the tree like me...", "Slothastic!", "Damn, Slohn!", "I wish my slohn was as slothisticated as you!", "You reached slothistication!"];
       $("#level-up-text").text(levelUpTextArray[this.__proto__.__proto__.level-2]);
->>>>>>> 4880a4e4b95b4d9b7617d66991ebb512ecf9bd18
       // $(".live-bar").css("display","none");
       // $("footer").css("display","none");
       this.listenToContinueButton();
