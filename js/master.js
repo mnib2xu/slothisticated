@@ -13,6 +13,8 @@ class MasterGame {
     if (this.__proto__.__proto__.slothicles === 1) {
       $("#final-score").text(this.__proto__.__proto__.score);
       $("#end-screen").css("display", "flex");
+      $(".live-bar").css("display", "none");
+      $("footer").css("display", "none");
       // $("footer").css("display","none");
       // $(".live-bar").css("display","none");
       $("#random-question").text("You reached the end!");
