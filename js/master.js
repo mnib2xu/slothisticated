@@ -32,28 +32,28 @@ class MasterGame {
   increaseScore(previousGame) {
     this.__proto__.__proto__.score++;
     var levelUp = false;
-    if (this.__proto__.__proto__.score === 40) {
+    if (this.__proto__.__proto__.score === 32) {
       this.__proto__.__proto__.level = 9;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 35) {
+    } else if (this.__proto__.__proto__.score === 28) {
       this.__proto__.__proto__.level = 8;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 30) {
+    } else if (this.__proto__.__proto__.score === 24) {
       this.__proto__.__proto__.level = 7;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 25) {
+    } else if (this.__proto__.__proto__.score === 20) {
       this.__proto__.__proto__.level = 6;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 20) {
+    } else if (this.__proto__.__proto__.score === 16) {
       this.__proto__.__proto__.level = 5;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 15) {
+    } else if (this.__proto__.__proto__.score === 12) {
       this.__proto__.__proto__.level = 4;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 10) {
+    } else if (this.__proto__.__proto__.score === 8) {
       this.__proto__.__proto__.level = 3;
       levelUp = true;
-    } else if (this.__proto__.__proto__.score === 5) {
+    } else if (this.__proto__.__proto__.score === 4) {
       this.__proto__.__proto__.level = 2;
       levelUp = true;
     }

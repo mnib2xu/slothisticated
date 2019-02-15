@@ -26,16 +26,16 @@ class Game1 extends MasterGame{
         this.countdownTime = 20;
         break;
       case 3:
-        this.countdownTime = 20;
+        this.countdownTime = 30;
         break;
       case 4:
-        this.countdownTime = 15;
-        break;
-      case 5:
         this.countdownTime = 20;
         break;
+      case 5:
+        this.countdownTime = 30;
+        break;
       case 6:
-        this.countdownTime = 15;
+        this.countdownTime = 20;
         break;
       case 7:
         this.countdownTime = 20;
