@@ -190,13 +190,27 @@ footer {
   height: 60vh;
   display: flex;
   align-items: center;
+  align-content: center;
+}
+
+#end-screen .main-menu {
+  /* height: 20vh; */
+  /* margin: 0; */
+  margin-bottom: 0;
+  /* float: center;
+  position: absolute; */
+  /* top: 40vh; */
+}
+
+#end-screen img {
+  width: 65vw;
 }
 
 /* LEVEL UP SCREEN */
 #level-up-screen{
   /* flex-direction: column; */
   height: 60vh;
-  margin-bottom: 0;
+
 }
 
 #sloth-img {
@@ -300,6 +314,14 @@ footer {
   }
   #end-screen {
     height: 50vh;
+    }
+  #end-screen img {
+    height: 100%;
+    width: 40vh;
+    margin-bottom: 1vh
+  }
+  #end-screen .main-title {
+    margin: 0;
   }
 
   #level-up-screen {

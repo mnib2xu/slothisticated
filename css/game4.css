@@ -27,6 +27,7 @@
 
 .red-btn img {
   height: 60%;
+  color: rgb(217, 225, 190);
 }
 
 @media (orientation: landscape) {
