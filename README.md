@@ -4,7 +4,7 @@ Slothisticated is a browser-based, responsive reaction game for everyone! You wi
 
 Much responsive, very sloth!
 
-## The Games:
+### The Games:
   - Game 1: Click the right circle before the countdown is at 0. 
   - Game 2: React as fast as you can as soon as the picture of the sloth appears.
   - Game 3: Repeat the pattern
@@ -15,11 +15,12 @@ Much responsive, very sloth!
 Now the question is,
 ![adventshare](https://raw.githubusercontent.com/mnib2xu/slothisticated/master/img/sloth-github.jpg?v=3&s=200)
 
-## Feeling slothisticated?
+### Feeling slothisticated?
 Do you want to contribute your owm mini-Game to slothisticated?
 Feel free to do so and create a pull request to this repository :D
 
-Greetings by <a href="https://github.com/rhahne">Robin Hahne</a> and <a href="https://github.com/mnib2xu">Bas Wakker</a>!
+
+### Greetings by <a href="https://github.com/rhahne">Robin Hahne</a> and <a href="https://github.com/mnib2xu">Bas Wakker</a>!
 
 Check out our other Projects:
 - <a href="https://github.com/rhahne/adventshare</a>
