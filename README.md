@@ -24,5 +24,5 @@ Feel free to do so and create a pull request to this repository :D
 Greetings by <a href="https://github.com/rhahne">Robin Hahne</a> and <a href="https://github.com/mnib2xu">Bas Wakker</a>!
 
 Check out our other Projects:
-- <a href="https://github.com/rhahne/adventshare</a>
+- <a href="https://github.com/rhahne/adventshare">Adventshare</a>
 - <a href="https://github.com/rhahne/iron-impression">Iron Impression</a>
