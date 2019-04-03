@@ -19,8 +19,9 @@ Now the question is,
 Do you want to contribute your owm mini-Game to slothisticated?
 Feel free to do so and create a pull request to this repository :D
 
+<hr />
 
-### Greetings by <a href="https://github.com/rhahne">Robin Hahne</a> and <a href="https://github.com/mnib2xu">Bas Wakker</a>!
+Greetings by <a href="https://github.com/rhahne">Robin Hahne</a> and <a href="https://github.com/mnib2xu">Bas Wakker</a>!
 
 Check out our other Projects:
 - <a href="https://github.com/rhahne/adventshare</a>
